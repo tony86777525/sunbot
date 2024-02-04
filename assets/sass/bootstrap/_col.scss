@@ -1,0 +1,47 @@
+[class*="col-"],
+[class^="col-"] {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+$col-values: ("1": 8.33333%, "2": 16.66667%, "3": 25%, "4": 33.33333%, "5": 41.66667%, "6": 50%, "7": 58.33333%, "8": 66.66667%, "9": 75%, "10": 83.33333%, "11": 91.66667%, "12": 100% );
+
+@each $name, $value in $col-values {
+    .col-#{$name} {
+        width: $value;
+    }
+}
+
+@media only screen and (min-width: 320px) {
+    @each $name, $value in $col-values {
+        .col-xs-#{$name} {
+            width: $value;
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    @each $name, $value in $col-values {
+        .col-sm-#{$name} {
+            width: $value;
+        }
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+
+    @each $name, $value in $col-values {
+        .col-md-#{$name} {
+            width: $value;
+        }
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    @each $name, $value in $col-values {
+        .col-lg-#{$name} {
+            width: $value;
+        }
+    }
+}

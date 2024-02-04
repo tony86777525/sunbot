@@ -2,7 +2,7 @@ const CWApiRelease = 'https://api.cw.com.tw';
 const CWPublishingToken = localStorage.getItem('cw_publishing_token') ?? '';
 const CWPublishingMemberToken = localStorage.getItem('cw_publishing_memberToken') ?? '';
 
-const LoginPageUrl = 'index.html';
+const LoginPageUrl = 'login.html';
 // const LoginPageUrl = 'https://web.cw.com.tw/activity/redirect/f2051b3a-5d63-4a23-992f-6fe6a796bb51';
 const gas = 'https://script.google.com/macros/s/AKfycbxNncSrJYBBve5RYaHmtNtC-tyAhgWtc-l3T75U9Wo9eWXzyPSfLOOvxD9rV3CefhoCxw/exec';
 
@@ -515,11 +515,11 @@ class SunBot {
             })
         }
 
-        $('[data-target="typing"]').append(`<div>Ａ：${answerElement}<hr></div>`);
+        // $('[data-target="typing"]').append(`<div>Ａ：${answerElement}<hr></div>`);
 
-        // $('[data-target="typing"]').typing({
-        //     sourceElement: `<div>Ａ：${answerElement}<hr></div>`
-        // });
+        $('[data-target="typing"]').typing({
+            sourceElement: `<div>Ａ：${answerElement}<hr></div>`
+        });
 
         this.setQuestion();
         this._answer = '';

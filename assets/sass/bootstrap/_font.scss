@@ -1,0 +1,100 @@
+$fw-values: 300, 400, 500, 600, 700;
+@each $value in $fw-values {
+    .font-weight-#{$value} {
+        font-weight: $value;
+    }
+}
+
+$ta-values: left, center, right;
+@each $value in $ta-values {
+    .text-#{$value} {
+        text-align: $value;
+    }
+}
+
+$lh-values: ("1000": 1, "1125": 1.125, "1250": 1.25, "1500": 1.5, "1750": 1.75, "2000": 2);
+@each $name, $value in $lh-values {
+    .line-height-#{$name} {
+        line-height: $value;
+    }
+}
+
+@media only screen and (min-width: 320px) {
+    @each $value in $fw-values {
+        .font-weight-xs-#{$value} {
+            font-weight: $value;
+        }
+    }
+    
+    @each $value in $ta-values {
+        .text-xs-#{$value} {
+            text-align: $value;
+        }
+    }
+
+    @each $name, $value in $lh-values {
+        .line-height-xs-#{$name} {
+            line-height: $value;
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    @each $value in $fw-values {
+        .font-weight-sm-#{$value} {
+            font-weight: $value;
+        }
+    }
+    
+    @each $value in $ta-values {
+        .text-sm-#{$value} {
+            text-align: $value;
+        }
+    }
+
+    @each $name, $value in $lh-values {
+        .line-height-sm-#{$name} {
+            line-height: $value;
+        }
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    @each $value in $fw-values {
+        .font-weight-md-#{$value} {
+            font-weight: $value;
+        }
+    }
+    
+    @each $value in $ta-values {
+        .text-md-#{$value} {
+            text-align: $value;
+        }
+    }
+
+    @each $name, $value in $lh-values {
+        .line-height-md-#{$name} {
+            line-height: $value;
+        }
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    @each $value in $fw-values {
+        .font-weight-lg-#{$value} {
+            font-weight: $value;
+        }
+    }
+    
+    @each $value in $ta-values {
+        .text-lg-#{$value} {
+            text-align: $value;
+        }
+    }
+
+    @each $name, $value in $lh-values {
+        .line-height-lg-#{$name} {
+            line-height: $value;
+        }
+    }
+}

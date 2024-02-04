@@ -1,0 +1,81 @@
+@font-face {
+    font-family: "cwef";
+    src: url("../fonts/cwef.eot?4kr2ud");
+    src: url("../fonts/cwef.eot?4kr2ud#iefix") format("embedded-opentype"),
+        url("../fonts/cwef.ttf?4kr2ud") format("truetype"), url("../fonts/cwef.woff?4kr2ud") format("woff"),
+        url("../fonts/cwef.svg?4kr2ud#cwef") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: "cwef" !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow-down:before {
+    content: "";
+}
+
+.icon-arrow-left:before {
+    content: "";
+}
+
+.icon-arrow-right:before {
+    content: "";
+}
+
+.icon-arrow-up:before {
+    content: "";
+}
+
+.icon-check:before {
+    content: "";
+}
+
+.icon-chevron-down:before {
+    content: "";
+}
+
+.icon-chevron-left:before {
+    content: "";
+}
+
+.icon-chevron-right:before {
+    content: "";
+}
+
+.icon-chevron-up:before {
+    content: "";
+}
+
+.icon-eye:before {
+    content: "";
+}
+
+.icon-eye-slash:before {
+    content: "";
+}
+
+.icon-minus:before {
+    content: "";
+}
+
+.icon-plus:before {
+    content: "";
+}
+
+.icon-x:before {
+    content: "";
+}

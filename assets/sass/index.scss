@@ -1,0 +1,494 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600&family=Noto+Serif+TC:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import "utils/variables",
+"utils/mixin";
+@import "normalize";
+@import "widget/common",
+"widget/icon",
+"bootstrap/bootstrap-setting",
+"chartanimate";
+$path: '../images';
+
+html {
+    @include mobile {
+        font-size: (100vw/39);
+    }
+
+    @include laptops {
+        font-size: 16px;
+    }
+}
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+
+    &.fixed {
+        height: 100dvh;
+
+        .main {
+            @include mobile {
+                height: calc(100dvh - 16.6rem);
+            }
+        
+            @include laptops {
+                height: calc(100dvh - 70px);
+            }
+        
+        }
+    }
+
+    &.nofixed {
+        height: 100vh;
+
+        .main {
+            @include mobile {
+                height: calc(100vh - 16.6rem);
+            }
+        
+            @include laptops {
+                height: calc(100vh - 70px);
+            }
+        
+        }
+    }
+}
+
+.opening  {
+    height: 100%;
+
+    .wrapper {
+        height: 100%;
+    }
+
+    &__wrap {
+        position: relative;
+        height: 100%;
+    }
+
+    &__charts {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 5;
+
+        @include mobile {
+            padding: 0 3rem;
+            bottom: 10%;
+        }
+
+        @include laptops {
+            height: 100%;
+            padding: 0;
+            top: 0;
+        }
+
+        .right {
+            @include mobile {
+                flex: 0 0 1rem;
+            }
+
+            @include laptops {
+                flex: 0 0 auto;
+            }
+        }
+    }
+
+    &__text {
+        position: relative;
+        height: 100%;
+        z-index: 10;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+        background-image: url('#{$path}/bg-kv-map.png');
+        background-repeat: no-repeat;
+        background-position-x: center;
+
+        @include mobile {
+            padding-top: 15%;
+            background-position-y: 20%;
+            background-size: 90vw auto;
+        }
+
+        @include laptops {
+            padding-top: 5%;
+            background-position-y: 20%;
+            background-size: auto;
+        }
+
+        @include desktop {
+            padding-top: 10%;
+            background-position-y: 25%;
+        }
+
+        .kv {
+            position: absolute;
+            bottom: 0;
+            z-index: 0;
+
+            @include mobile {
+                width: 100%;
+                left: 0;
+                bottom: 0;
+
+                &:before {
+                    content: '';
+                    display: block;
+                    padding-top: (324/375)*100%;
+                }
+            }
+
+            @include laptops{
+                width: 70%;
+                left: auto;
+                right: 14%;
+
+                &:before {
+                    content: '';
+                    display: block;
+                    padding-top: (563/999)*100%;
+                }
+            }
+
+            @include desktop {
+                width: 80%;
+                right: 5%;
+            }
+
+            .img {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+
+                @include mobile {
+                    &.is-mb {
+                        display: block;
+                    }
+                    &.is-pc {
+                        display: none;
+                    }
+                }
+
+                @include laptops {
+                    &.is-mb {
+                        display: none;
+                    }
+                    &.is-pc {
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        .text {
+            position: relative;
+            z-index: 1;
+
+            .mainSlogan {
+                margin: 0;
+                position: relative;
+                color: #693329;
+                display: inline-block;
+
+                &__text {
+                    line-height: 1.4;
+                    text-align: left;
+
+                    @include mobile {
+
+                        .f-large {
+                            font-size: 5.4rem;
+                        }
+                        
+                        .f-small {
+                            font-size: 3rem;
+                        }
+                    }
+                    
+                    @include laptops {
+                        min-width: 288px;
+
+                        .f-large {
+                            font-size: 72px;
+                        }
+                        
+                        .f-small {
+                            font-size: 46px;
+                        }
+                    }
+                }
+
+                .icon {
+                    position: absolute;
+
+                    @include mobile {
+                        width: 6rem;
+                        height: 6rem;
+                        top: -10%;
+                        right: -20%;
+                    }
+
+                    @include laptops {
+                        width: 107px;
+                        height: 107px;
+                        top: -20%;
+                        right: -30%;
+                    }
+                }
+            }
+
+            .subSlogan {
+                position: relative;
+                color: #693329;
+                font-weight: bold;
+                overflow: hidden;
+
+                &:before,
+                &:after {
+                    position: absolute;
+                    top: 0;
+                    font-family: 'Roboto', sans-serif;
+
+                    @include mobile {
+                        line-height: 2.8rem;
+                        font-size: 2rem;
+                    }
+                    
+                    @include laptops {
+                        line-height: 40px;
+                        font-size: 28px;
+                    }
+                }
+
+                &:before {
+                    content: '[';
+                    left: 0;
+                }
+                
+                &:after {
+                    content: ']';
+                    right: 0;
+                }
+
+                @include mobile {
+                    margin-top: 2rem;
+                    height: 2.8rem;
+                }
+
+                @include laptops {
+                    margin-top: 30px;
+                    height: 40px;
+                }
+
+                &__text {
+                    @include list-reset;
+                    animation: 6s linear 0s normal none infinite change;
+                    -webkit-animation: 6s linear 0s normal none infinite change;
+                    -moz-animation: 6s linear 0s normal none infinite change;
+                    -o-animation: 6s linear 0s normal none infinite change;
+
+                    & > li {
+
+                        @include mobile {
+                            font-size: 2rem;
+                            line-height: 2.8rem;
+                            letter-spacing: 0.45rem;
+                            text-indent: 0.45rem;
+                        }
+
+                        @include laptops {
+                            font-size: 28px;
+                            line-height: 40px;
+                            letter-spacing: 4.5px;
+                            text-indent: 4.5px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .action {
+            position: relative;
+            z-index: 1;
+
+            @include mobile {
+                margin-top: 5rem;
+            }
+
+            @include laptops {
+                margin-top: 40px;
+            }
+
+            .action__link {
+                display: inline-block;
+                background-color: #AC632E;
+                color: #F9FBFB;
+                font-weight: 500;
+                @include box-sizing(border-box);
+
+                @include mobile {
+                    padding: 0.8rem 2.6rem;
+                    font-size: 1.6rem;
+                    letter-spacing: 0.25rem;
+                    text-indent: 0.25rem;
+                    border-radius: 2.1rem;
+                    border: 0.2rem solid #693329;
+                }
+
+                @include laptops {
+                    padding: 14px 36px;
+                    font-size: 20px;
+                    font-weight: 400;
+                    letter-spacing: 2.5px;
+                    text-indent: 2.5px;
+                    border-radius: 34px;
+                    border: 2px solid #693329;
+                    @include transition(all,.3s,ease-in);
+
+                    &:hover {
+                        background-color: #c18961;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include mobile {
+    @-webkit-keyframes change {
+        0%   { margin-top:0; }
+        15%  { margin-top:0; }
+        25%  { margin-top:-2.8rem; }
+        40%  { margin-top:-2.8rem; }
+        50%  { margin-top:-5.6rem; }
+        65%  { margin-top:-5.6rem; }
+        75%  { margin-top:-2.8rem; }
+        85%  { margin-top:-2.8rem; }
+        100% { margin-top:0; }
+    }
+    @keyframes change {
+        0%   { margin-top:0; }
+        15%  { margin-top:0; }
+        25%  { margin-top:-2.8rem; }
+        40%  { margin-top:-2.8rem; }
+        50%  { margin-top:-5.6rem; }
+        65%  { margin-top:-5.6rem; }
+        75%  { margin-top:-2.8rem; }
+        85%  { margin-top:-2.8rem; }
+        100% { margin-top:0; }
+    }
+}
+
+@include laptops {
+    @-webkit-keyframes change {
+        0%   { margin-top:0; }
+        15%  { margin-top:0; }
+        25%  { margin-top:-40px; }
+        40%  { margin-top:-40px; }
+        50%  { margin-top:-80px; }
+        65%  { margin-top:-80px; }
+        75%  { margin-top:-40px; }
+        85%  { margin-top:-40px; }
+        100% { margin-top:0; }
+    }
+    @keyframes change {
+        0%   { margin-top:0; }
+        15%  { margin-top:0; }
+        25%  { margin-top:-40px; }
+        40%  { margin-top:-40px; }
+        50%  { margin-top:-80px; }
+        65%  { margin-top:-80px; }
+        75%  { margin-top:-40px; }
+        85%  { margin-top:-40px; }
+        100% { margin-top:0; }
+    }
+}
+
+
+
+.charts {
+    &--bar {
+        @include list-reset;
+
+        @include mobile {
+            margin-bottom: 3rem;
+
+            & > li {
+                width: 14rem;
+                margin-bottom: 1.4rem;
+            }
+        }
+        
+        @include laptops {
+            margin-bottom: 64px;
+
+            & > li {
+                width: 218px;
+                margin-bottom: 20px;
+            }
+        }
+
+        
+    }
+
+    &--areaGraph {
+        @include mobile {
+            margin-left: 3rem;
+            width: 13rem;
+        }
+        @include laptops {
+            width: 160px;
+            margin-left: 28px;
+            margin-bottom: 47px;
+        }
+    }
+
+    &--polyline {
+
+        @include mobile {
+            display: none;
+        }
+
+        @include laptops {
+            display: block;
+            width: 283px;
+            
+            svg {
+                width: 100%;
+            }
+        }
+    }
+
+    &--donuts {
+        @include list-reset;
+
+        & > li {
+            margin-bottom: 30px;
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            &:nth-child(2),
+            &:nth-child(3) {
+                display: none;
+            }
+
+            @include laptops {
+                &:nth-child(2),
+                &:nth-child(3) {
+                    display: block;
+                }
+            }
+        }
+    }
+}

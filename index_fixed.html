@@ -41,7 +41,7 @@
     </script> -->
 </head>
 
-<body class="nofixed">
+<body class="fixed">
     <!-- <noscript>
         <iframe src="https://www.googletagmanager.com/ns.html?id=" height="0" width="0" style="display:none;visibility:hidden"></iframe>
     </noscript> -->
@@ -49,16 +49,16 @@
         <div class="wrapper">
             <div class="logo">
                 <a href="https://www.cw.com.tw/">
-                    <img src="assets/images/cw-logo.png" alt="天下雜誌出版" class="img">
+                    <img src="assets/images/cw-logo.png" alt="" class="img">
                 </a>
             </div>
             <div class="burger" data-nav-item="nav-open"></div>
             <nav class="nav" data-nav-item="nav">
                 <div class="nav__close" data-nav-item="nav-close"></div>
                 <div class="nav__links">
-                    <button type="button" class="link link--button" data-button-item="popup" data-popup-target="book">書籍介紹</button>
-                    <button type="button" class="link link--button" data-button-item="popup" data-popup-target="author">作者介紹</button>
-                    <a class="link link--button" href="#">購買本書</a>
+                    <a class="link" href="#">書籍介紹</a>
+                    <a class="link" href="#">作者介紹</a>
+                    <a class="link" href="#">購買本書</a>
                 </div>
                 <div class="nav__footer">
                     <div class="copyright">Copyright © 天下雜誌出版 All rights reserved. 版權所有，禁止擅自轉貼節錄</div>
@@ -134,14 +134,14 @@
                             </div>
                         </div>
                         <div class="action wow fadeIn" data-wow-delay="3s">
-                            <button type="button" class="action__link wow pulse" data-wow-delay="3.5s" data-wow-iteration="infinite" data-button-item="popup" data-popup-target="login">立即體驗</button>
+                            <a href="#" class="action__link wow pulse" data-wow-delay="3.5s" data-wow-iteration="infinite">立即體驗</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
-    <footer class="footer footer--index">
+    <footer class="footer">
         <div class="wrapper">
             <div class="footer__copyright">Copyright &copy; 天下雜誌出版 All rights reserved. 版權所有，禁止擅自轉貼節錄</div>
             <ul class="footer__nav">
@@ -150,57 +150,19 @@
             </ul>
         </div>
     </footer>
-    <div class="popup popup--alert" data-popup-item="group" data-popup-name="login">
+    <div class="popup popup--alert">
         <div class="popup__overlay"></div>
         <div class="popup__content">
             <div class="wrap">
-                <div class="popupClose" data-popup-item="close">
+                <div class="popupClose">
                     <button class="popupClose__btn" data-popup-item="close"></button>
                 </div>
                 <div class="popupContent">
                     <div class="popupContent__title">開始使用前，請先登入</div>
-                    <div class="popupContent__info">
-                        <div class="alertInfo">
-                            準備好了嗎？只需快速登入，即可開啟您的問答體驗。
-                        </div>
-                    </div>
+                    <div class="popupContent__info">準備好了嗎？只需快速登入，即可開啟您的問答體驗。</div>
                     <div class="popupContent__action">
                         <a href="#" class="link link--button">登入</a>
                         <a href="#" class="link link--button">註冊</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="popup popup--default" data-popup-item="group" data-popup-name="book">
-        <div class="popup__overlay"></div>
-        <div class="popup__content">
-            <div class="wrap">
-                <div class="popupClose">
-                    <button class="popupClose__btn" data-popup-item="close"></button>
-                </div>
-                <div class="popupContent">
-                    <div class="popupContent__title">書籍介紹</div>
-                    <div class="popupContent__info">
-                        <div class="paragraph">待補</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="popup popup--default" data-popup-item="group" data-popup-name="author">
-        <div class="popup__overlay"></div>
-        <div class="popup__content">
-            <div class="wrap">
-                <div class="popupClose">
-                    <button class="popupClose__btn" data-popup-item="close"></button>
-                </div>
-                <div class="popupContent">
-                    <div class="popupContent__title">作者介紹</div>
-                    <div class="popupContent__info">
-                        <div class="authors">
-                            待補
-                        </div>
                     </div>
                 </div>
             </div>

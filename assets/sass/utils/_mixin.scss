@@ -1,0 +1,140 @@
+@mixin box-sizing($type) {
+    -moz-box-sizing: $type;
+    -webkit-box-sizing: $type;
+    box-sizing: $type;
+}
+
+@mixin clearfix {
+
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+@mixin list-reset {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@mixin appearance($value) {
+    -webkit-appearance: $value;
+    -moz-appearance: $value;
+    -o-appearance: $value;
+    appearance: $value;
+}
+
+@mixin flex-obj($align, $justify) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+@mixin border-radius($value) {
+    -moz-border-radius: $value;
+    -webkit-border-radius: $value;
+    border-radius: $value;
+}
+
+@mixin transition($property, $duration, $curve) {
+    -moz-transition: $property $duration $curve;
+    -o-transition: $property $duration $curve;
+    -webkit-transition: $property $duration $curve;
+    transition: $property $duration $curve;
+}
+
+//transform
+@mixin transform($transforms) {
+    -webkit-transform: $transforms;
+    -moz-transform: $transforms;
+    -ms-transform: $transforms;
+    transform: $transforms;
+}
+
+@mixin transformStyle($style) {
+    -webkit-transform-style: $style;
+    transform-style: $style;
+}
+
+@mixin rotate($deg) { 
+    @include transform(rotate(#{$deg}deg));
+}
+
+@mixin rotateX($deg) { 
+    @include transform(rotateX(#{$deg}deg));
+}
+
+@mixin rotateY($deg) { 
+    @include transform(rotateY(#{$deg}deg));
+}
+
+@mixin scale($scale) {
+    @include transform(scale($scale));
+}
+
+@mixin scaleX($valueX) {
+    @include transform(scale($valueX));
+}
+
+@mixin scaleY($valueY) {
+    @include transform(scale($valueY));
+}
+
+@mixin scaleXY($valueX,$valueY) {
+    @include transform(scale($valueX,$valueX));
+}
+
+@mixin translate ($x, $y) {
+    @include transform(translate($x, $y));
+}
+
+@mixin translateX ($x) {
+    @include transform(translateX($x));
+}
+
+@mixin translateY ($y) {
+    @include transform(translateY($y));
+}
+
+@mixin skew ($x, $y) {
+    @include transform(skew(#{$x}deg, #{$y}deg));
+}
+
+@mixin transformOrigin($x,$y) {
+    -moz-transform-origin: $x $y;
+    -o-transform-origin: $x $y;
+    -webkit-transform-origin: $x $y;
+    transform-origin: $x $y;
+}
+
+// ========== Media Queries ==========
+//Small devices (portrait phones, 320 and up)
+@mixin mobile {
+    @media only screen and (min-width: 320px) {
+        @content;
+    }
+}
+//Medium devices (portrait tablets,landscape phone, 768px and up)
+@mixin pad {
+    @media only screen and (min-width: 768px) {
+        @content;
+    }
+}
+//Large devices (laptops, 1024 and up)
+@mixin laptops {
+    @media only screen and (min-width: 1024px) {
+        @content;
+    }
+}
+//Extra Large devices (laptops and desktop, 1441 and up)
+@mixin desktop {
+    @media only screen and (min-width: 1441px) {
+        @content;
+    }
+}

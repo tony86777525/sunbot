@@ -1,0 +1,554 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600&family=Noto+Serif+TC:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import "utils/variables",
+"utils/mixin";
+@import "normalize";
+@import "widget/common",
+"widget/icon",
+"bootstrap/bootstrap-setting",
+"chartanimate";
+$path: '../images';
+
+html {
+    @include mobile {
+        font-size: (100vw/39);
+    }
+
+    @include laptops {
+        font-size: 16px;
+    }
+}
+
+body {
+    background-image: url('#{$path}/bg-grid.png');
+    font-family: 'Noto Sans TC', sans-serif;
+
+    &.fixed {
+        height: 100dvh;
+
+        .main {
+            @include mobile {
+                height: calc(100dvh - 11rem);
+                padding: 2rem 2rem 0;
+            }
+        
+            @include laptops {
+                height: calc(100dvh - 70px);
+                padding: 0;
+            }
+        }
+    }
+}
+
+.chatdialog  {
+    height: 100%;
+
+    .wrapper {
+        height: 100%;
+    }
+
+    &__wrap {
+        position: relative;
+        height: 100%;
+    }
+
+    &__dialog {
+        position: relative;
+        z-index: 5;
+
+        @include mobile {
+            height: 100%;
+        }
+
+        @include laptops {
+            display: flex;
+            align-items: flex-end;
+            padding-top: 30px;
+            padding-left: 48px;
+            height: calc(100% - 68px);
+        }
+
+        .guide {
+
+            @include mobile {
+                position: absolute;
+                z-index: 5;
+                top: 1rem;
+                right: 1rem;
+            }
+    
+            @include laptops {
+                position: static;
+            }
+
+            &__icon {
+                display: block;
+                background-color: transparent;
+                border: none;
+                background-image: url('#{$path}/icon-guide.svg');
+                background-repeat: no-repeat;
+
+                @include mobile {
+                    width: 2rem;
+                    height: 2rem;
+                    background-size: 2rem;
+                }
+
+                @include laptops {
+                    width: 32px;
+                    height: 32px;
+                    background-size: 32px;
+                }
+            }
+        }
+
+        .chatroom {
+            background-color: #FFFFFF;
+            height: 100%;
+            position: relative;
+
+            @include mobile {
+                border: 0.2rem solid #CBE8F8;
+                border-radius: 1.6rem 1.6rem 0 0;
+                padding: 3rem 2rem 0;
+                box-shadow: 0 0.2rem 0.5rem rgba(0,0,0,.15);
+            }
+
+            @include laptops {
+                flex: 0 0 850px;
+                margin-left: 30px;
+                border: 2px solid #CBE8F8;
+                border-radius: 16px;
+                padding: 30px 40px 0;
+                box-shadow: 0 2px 5px rgba(0,0,0,.15);
+            }
+
+            &__wrap {
+                position: relative;
+                height: 100%;
+            }
+
+            &__messages {
+                @include mobile {
+                    height: calc(100% - 10rem);
+                    overflow: scroll;
+                }
+
+                @include laptops {
+                    height: calc(100% - 100px);
+                    overflow: scroll;
+                }
+
+                .message {
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+
+                    @include mobile {
+                        margin-bottom: 3rem;
+                    }
+                    @include laptops {
+                        margin-bottom: 40px;
+                    }
+                }
+
+                .loadingWrap {
+                    @include mobile {
+                        padding: 1rem 0;
+                    }
+                    @include laptops {
+                        padding: 10px 0;
+                    }
+                }
+            }
+
+            &__input {
+                position: absolute;
+                width: 100%;
+                bottom: 0;
+                left: 0;
+
+                @include mobile {
+                    padding: 2rem;
+                }
+
+                @include laptops {
+                    padding: 20px 40px;
+                }
+
+                .exchangeHint {
+                    @include mobile {
+                        margin-top: 1rem;
+                        font-size: 1.4rem;
+                    }
+
+                    @include laptops {
+                        margin-top: 10px;
+                        font-size: 14px;
+                    }
+                }
+            }
+
+            .message {
+                &--ai {
+                    @include laptops {
+                        padding-right: 70px;
+                    }
+
+                    .message__profile {
+                        display: flex;
+                        font-weight: 700;
+                        align-items: center;
+
+                        @include mobile {
+                            font-size: 1.6rem;
+                        }
+                        @include laptops {
+                            font-size: 16px;
+                        }
+
+                        &:before {
+                            content: '';
+                            display: block;
+                            background-image: url('#{$path}/icon-ai.svg');
+
+                            @include mobile {
+                                width: 5rem;
+                                height: 5rem;
+                                background-size: 5rem;
+                                margin-right: 1rem;
+                            }
+                            @include laptops {
+                                width: 50px;
+                                height: 50px;
+                                background-size: 50px;
+                                margin-right: 10px;
+                            }
+                        }
+                    }
+
+                    .message__msg {
+                        line-height: 1.75;
+                        color: #000;
+
+                        @include mobile {
+                            margin-top: 1rem;
+                            font-size: 1.6rem;
+                        }
+
+                        @include laptops {
+                            margin-top: 0;
+                            font-size: 16px;
+                            padding-left: 60px;
+                        }
+                    }
+
+                    .message__actions {
+                        display: flex;
+                        flex-wrap: wrap;
+                        flex-direction: column;
+                        align-items: flex-start;
+
+                        @include mobile {
+                            margin-top: 1rem;
+                        }
+
+                        @include laptops {
+                            margin-top: 10px;
+                            padding-left: 60px;
+                        }
+
+                        .action {
+
+                            &:last-child {
+                                margin-bottom: 0;
+                            }
+
+                            @include mobile {
+                                margin-bottom: 1.4rem;
+                            }
+
+                            @include laptops {
+                                margin-bottom: 14px;
+                            }
+
+                            &--related {
+                                padding: 0;
+                                background-color: transparent;
+                                border: none;
+                                text-decoration: underline;
+                                line-height: 1.75;
+                                font-weight: 300;
+                                color: #AC632E;
+                                
+                                @include mobile {
+                                    font-size: 1.3rem;
+                                }
+
+                                @include laptops {
+                                    font-size: 13px;
+                                }
+                            }
+
+                            &--recommend {
+                                background-color: #FFFFFF;
+                                line-height: 1.5;
+                                font-weight: 400;
+                                
+                                @include mobile {
+                                    border: 0.1rem solid #4593D0;
+                                    font-size: 1.4rem;
+                                    padding: 1rem 2.2rem;
+                                    border-radius: 2.8rem;
+                                }
+
+                                @include laptops {
+                                    border: 1px solid #4593D0;
+                                    font-size: 14px;
+                                    padding: 10px 22px;
+                                    border-radius: 28px;
+                                    @include transition(all, .3s, ease-in);
+
+                                    &:hover {
+                                        background-color: #4593D0;
+                                        color: #FFFFFF;
+                                    }
+                                }
+                                
+                                &.is-active {
+                                    background-color: #4593D0;
+                                    color: #FFFFFF;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &--user {
+                    display: flex;
+                    justify-content: flex-end;
+
+                    @include mobile {
+                        padding-right: 1.4rem;
+                    }
+
+                    @include laptops {
+                        padding-right: 14px;
+                    }
+
+                    .message__dialog {
+                        position: relative;
+                        background-color: #4593D0;
+                        color: #FFFFFF;
+                        font-weight: 400;
+                        line-height: 1.75;
+
+                        @include mobile {
+                            padding: 1.2rem 2.2rem;
+                            font-size: 1.6rem;
+                            border-radius: 1rem;
+                        }
+
+                        @include laptops {
+                            padding: 12px 22px;
+                            font-size: 16px;
+                            border-radius: 10px;
+                        }
+                        
+                        &:after {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            background-image: url('#{$path}/deco-dialog_user.svg');
+                            
+                            @include mobile {
+                                width: 1.4rem;
+                                height: 1.4rem;
+                                right: -1.4rem;
+                                top: 0.7rem;
+                                background-size: 1.4rem;
+                            }
+                            
+                            @include laptops {
+                                width: 14px;
+                                height: 14px;
+                                right: -14px;
+                                top: 7px;
+                                background-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .insert {
+                display: flex;
+                width: 100%;
+                align-items: center;
+
+                @include mobile {
+                    padding: 1.5rem;
+                    border: 0.1rem solid #828282;
+                }
+
+                @include laptops {
+                    padding: 15px 22px;
+                    border: 1px solid #828282;
+                }
+
+                &__textarea {
+                    display: flex;
+                    border: none;
+                    line-height: 1.5;
+                    color: #828282;
+                    overflow-y: hidden;
+                    resize: none;
+
+                    &:focus {
+                        outline: none;
+                    }
+
+                    @include mobile {
+                        flex: 0 0 calc(100% - 2.8rem);
+                        padding-right: 1.2rem;
+                        font-size: 1.6rem;
+                    }
+
+                    @include laptops {
+                        flex: 0 0 calc(100% - 28px);
+                        padding-right: 12px;
+                        font-size: 16px;
+                    } 
+                }
+
+                &__send {
+                    font-size: 0;
+                    display: block;
+                    background-color: transparent;
+                    border: none;
+                    background-image: url('#{$path}/btn-send_default.svg');
+                    background-repeat: no-repeat;
+                    
+                    @include mobile {
+                        width: 2.8rem;
+                        height: 2.8rem;
+                        background-size: 2.8rem;
+                    }
+
+                    @include laptops {
+                        width: 28px;
+                        height: 28px;
+                        background-size: 28px;
+
+                        &:hover {
+                            background-image: url('#{$path}/btn-send_hover.svg');
+                        }
+                    }
+                }
+            }
+
+            &.is-unstart {
+                
+                @include mobile {
+                    padding-bottom: 2rem;
+                }
+
+                @include laptops {
+                    padding-bottom: 20px;
+                }
+                
+                .chatroom__messages {
+                    height: 100%;
+                }
+                .chatroom__input {
+                    display: none;
+                }
+            }
+
+            &.is-exchanged {
+                .chatroom__messages {
+                    @include mobile {
+                        height: calc(100% - 13.1rem);
+                    }
+                    @include laptops {
+                        height: calc(100% - 131px);
+                    }
+                }
+            }
+        }
+    }
+
+    &__kv {
+        position: absolute;
+        bottom: 0;
+        z-index: 10;
+        right: 0;
+
+        @include mobile {
+            display: none;
+        }
+
+        @include laptops{
+            display: block;
+            width: 387px;
+
+            &:before {
+                content: '';
+                display: block;
+                padding-top: (478/389)*100%;
+            }
+        }
+
+        .img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+.loading {
+    background-color:#4593D0;
+    border-radius: 100%;
+    float: left;
+
+    @include mobile {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 0.5rem;
+    }
+
+    @include laptops {
+        width: 10px;
+        height: 10px;
+        margin-right: 5px;
+    }
+}
+.loading-0 {
+    animation: loadingBounce 1s infinite;
+    animation-delay:.1s;
+}
+.loading-1 {
+    animation: loadingBounce 1s infinite;
+    animation-delay:.3s;
+}
+.loading-2 {
+    animation: loadingBounce 1s infinite ease;
+    animation-delay:.5s;
+}
+
+@keyframes loadingBounce {
+    0% {
+        opacity:1;
+    }
+    60% {
+        opacity:.0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

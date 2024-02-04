@@ -1,0 +1,343 @@
+$pie-color: #badefa;
+$pie-bg: #ffffff;
+$percentage: 0;
+$deg: ($percentage / 100) * 360deg;
+$duration: 1.5s;
+
+@mixin pie-animation($animation) {
+    -webkit-animation: $animation;
+    -o-animation: $animation;
+    animation: $animation;
+}
+
+@mixin pie-animation-delay($delay) {
+    -webkit-animation-delay: $delay;
+    animation-delay: $delay;
+}
+
+@mixin pie-rotate($degrees) {
+    -webkit-transform: rotate($degrees);
+    -moz-transform: rotate($degrees);
+    -ms-transform: rotate($degrees); // IE9 only
+    -o-transform: rotate($degrees);
+    transform: rotate($degrees);
+}
+
+@mixin horizontal-gradient($start-color: $pie-bg, $end-color: $pie-color) {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/ */
+    background-image: $start-color; /* Old browsers */
+    background-image: -moz-linear-gradient(
+        left,
+        $start-color 0%,
+        $start-color 50%,
+        $end-color 50%,
+        $end-color 100%
+    ); /* FF3.6-15 */
+    background-image: -webkit-linear-gradient(
+        left,
+        $start-color 0%,
+        $start-color 50%,
+        $end-color 50%,
+        $end-color 100%
+    ); /* Chrome10-25,Safari5.1-6 */
+    background-image: linear-gradient(
+        to right,
+        $start-color 0%,
+        $start-color 50%,
+        $end-color 50%,
+        $end-color 100%
+    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start-color', endColorstr='$end-color',GradientType=1 ); /* IE6-9 */
+}
+
+.percentage {
+    background-color: $pie-bg;
+    border-radius: 50%;
+    position: relative;
+    @include horizontal-gradient();
+    
+    @include mobile {
+        width: 10rem;
+        height: 10rem;
+    }
+
+    @include laptops {
+        width: 120px;
+        height: 120px;
+    }
+
+    &:before {
+        content: "";
+        display: block;
+        margin-left: 50%;
+        height: 100%;
+        transform-origin: left;
+        border-radius: 0 100% 100% 0 / 50%;
+        background-color: inherit;
+    }
+
+    &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 70%;
+        height: 70%;
+        background-color: #ece8e4;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        z-index: 10;
+    }
+
+    &--circle1 {
+        &:before {
+            @include pie-rotate($deg);
+            animation: spin1 $duration linear infinite;
+        }
+    }
+    &--circle2 {
+        &:before {
+            @include pie-rotate($deg);
+            animation: spin2 $duration linear infinite;
+        }
+    }
+    &--circle3 {
+        &:before {
+            background-color: $pie-color;
+            @include pie-rotate($deg);
+            animation: spin3 $duration linear infinite;
+        }
+    }
+}
+
+@keyframes spin1 {
+    0% {
+        @include pie-rotate(40deg);
+    }
+    50% {
+        @include pie-rotate(100deg);
+    }
+    100% {
+        @include pie-rotate(40deg);
+    }
+}
+
+@keyframes spin2 {
+    0% {
+        @include pie-rotate(120deg);
+    }
+    50% {
+        @include pie-rotate(180deg);
+    }
+    100% {
+        @include pie-rotate(120deg);
+    }
+}
+
+@keyframes spin3 {
+    0% {
+        @include pie-rotate(120deg);
+    }
+    50% {
+        @include pie-rotate(180deg);
+    }
+    100% {
+        @include pie-rotate(120deg);
+    }
+}
+
+@keyframes bg {
+    50% {
+        background-color: $pie-color;
+    }
+}
+
+// areaGraph
+
+$graph-bg: transparent;
+$graph-primary: #8cc8f7;
+$graph-secondary: #badefa;
+$stroke-width: 2;
+$transparent: transparent;
+
+.areaGraph {
+    .grid-back {
+        fill: $graph-bg;
+    }
+
+    .grid-front {
+        fill: lighten($graph-bg, 20%);
+    }
+    .chart-line {
+        stroke-width: $stroke-width;
+        stroke-linecap: round;
+        stroke-dasharray: 2000;
+        stroke-dashoffset: 2000;
+
+        &.primary {
+            stroke: $graph-primary;
+            fill: rgba($graph-primary, 0);
+            animation:
+                draw 5s linear infinite,
+                fill 5s linear infinite;
+        }
+        &.secondary {
+            stroke: $graph-secondary;
+            fill: rgba($graph-secondary, 0);
+            animation:
+                draw 5s linear infinite,
+                fillgraph-Secondary 5s linear infinite;
+        }
+    }
+
+    .overlay-border {
+        fill: none;
+        stroke-width: $stroke-width;
+        stroke: $graph-bg;
+    }
+
+    @keyframes draw {
+        to {
+            stroke-dashoffset: 0;
+        }
+    }
+    @keyframes fill {
+        0% {
+            fill: rgba($transparent, 0);
+        }
+        70% {
+            fill: rgba($transparent, 0);
+        }
+        100% {
+            fill: rgba($graph-primary, 0.3);
+        }
+    }
+    @keyframes fillgraph-Secondary {
+        0% {
+            fill: rgba($transparent, 0);
+        }
+        70% {
+            fill: rgba($transparent, 0);
+        }
+        100% {
+            fill: rgba($graph-secondary, 0.3);
+        }
+    }
+}
+
+.polyline {
+
+    polyline {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        animation: dash 3s ease-in infinite;
+    }
+}
+  
+@keyframes dash{
+    to {
+      stroke-dashoffset: 0;
+    }
+}
+
+$bar-bg: #FFFFFF;
+$bar-value: #8cc8f7;
+
+.barChart {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 8px;
+    border-radius: 4px;
+    background-color: $bar-bg;
+
+    .value {
+        position: absolute;
+        background-color: $bar-value;
+        height: 8px;
+        left: 0;
+        top: 0;
+        border-radius: 4px;
+    }
+
+    &--line1 {
+        .value {
+            animation: bar-line1 1.5s linear infinite;
+        }
+    }
+
+    &--line2 {
+        .value {
+            animation: bar-line2 1.8s linear infinite;
+        }
+    }
+
+    &--line3 {
+        .value {
+            animation: bar-line3 2s linear infinite;
+        }
+    }
+
+    &--line4 {
+        .value {
+            animation: bar-line4 1.3s linear infinite;
+        }
+    }
+}
+
+@keyframes bar-line1 {
+    0% {
+        width: 20%;
+    }
+
+    50% {
+        width: 30%;
+    }
+
+    100% {
+        width: 20%;
+    }
+}
+
+@keyframes bar-line2 {
+    0% {
+        width: 85%;
+    }
+
+    50% {
+        width: 100%;
+    }
+
+    100% {
+        width: 85%;
+    }
+}
+
+@keyframes bar-line3 {
+    0% {
+        width: 40%;
+    }
+
+    50% {
+        width: 50%;
+    }
+
+    100% {
+        width: 40%;
+    }
+}
+
+@keyframes bar-line4 {
+    0% {
+        width: 60%;
+    }
+
+    50% {
+        width: 70%;
+    }
+
+    100% {
+        width: 60%;
+    }
+}

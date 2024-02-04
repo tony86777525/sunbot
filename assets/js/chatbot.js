@@ -35,8 +35,6 @@ $(function () {
 		sunBot.closeWindows();
 	});
 
-
-
 	//open & close navigation
 	$('[data-nav-item="nav-open"]').on('click', function(){
 		$('body').addClass('openNav');
@@ -50,36 +48,60 @@ $(function () {
 		var target = $(this).data('popup-target');
 		$('body').removeClass('openNav');
 		
-		//if user is NOT logged in
-		$('[data-popup-name="' + target + '"]').fadeIn();
 
-		//if user accept exchange
-		if(target == 'exchange') {
-			$('[data-popup-name="trial"]').fadeOut();
-		}
+		if (target == 'exchange') {
+			$('.popupContent__status').removeClass('is-exchanged');
+			$('.popupContent__status, .exchangeInput').removeClass('is-error');
+			$('.codeStatus').hide();
 
-		if(target == 'accept') {
-			$(document).on('submit', '[name="exchange"]', (element) => {
-				element.preventDefault();
+			$('[data-popup-name="trial"]').hide();
+			$('[data-popup-name="' + target + '"]').show();
+		} else if(target == 'accept') {
+			$('.popupContent__status').removeClass('is-exchanged');
+			$('.popupContent__status, .exchangeInput').removeClass('is-error');
 
-				const formData = $(element.target).serializeArray();
-				const numberData = formData.find(data => data.name === 'number');
+			const number = $('[name="number"]').val();
 
-				if (numberData === undefined) {
-					alert('輸入錯誤');
-					return;
+			if (number === undefined || number === '') {
+				$('.popupContent__status, .exchangeInput').addClass('is-error');
+				$('.codeStatus').show();
+				return;
+			}
+
+			$('.popupContent__status').addClass('is-exchanged');
+
+			let resolve = (data) => {
+				if (data.isSuccess === 1) {
+					this._times = data.times;
+
+					$('[data-popup-name="' + target + '"]').show();
+					$('[data-popup-name="exchange"]').hide();
+				} else {
+					$('.popupContent__status, .exchangeInput').addClass('is-error');
+					$('.codeStatus').show();
 				}
+			}
 
-				const number = numberData.value;
+			let functions = {
+				resolve,
+			};
 
-				sunBot.exchangeTimes(number);
-			})
-			$('[data-popup-name="exchange"]').fadeOut();
+			sunBot.exchangeTimes(functions, number);
+		} else {
+			//if user is NOT logged in
+			$('[data-popup-name="' + target + '"]').show();
+
+			//if user accept exchange
+			if(target == 'exchange') {
+				$('[data-popup-name="trial"]').hide();
+			}
 		}
+
+
 	});
 
 	//close popup
 	$('[data-popup-item="close"]').on('click', function(){
-		$(this).closest('[data-popup-item="group"]').fadeOut();
+		$(this).closest('[data-popup-item="group"]').hide();
 	});
 });

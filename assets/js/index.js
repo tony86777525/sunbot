@@ -133,6 +133,6 @@ $(function () {
 
 	//close popup
 	$('[data-popup-item="close"]').on('click', function(){
-		$(this).closest('[data-popup-item="group"]').fadeOut();
+		$(this).closest('[data-popup-item="group"]').hide();
 	});
 });

@@ -384,7 +384,7 @@ class SunBot {
         });
     }
 
-    async exchangeTimes(number) {
+    async exchangeTimes(functions, number) {
         if (this.isMemberLogin() === false) {
             return;
         }
@@ -399,20 +399,6 @@ class SunBot {
             method: 'POST',
             url: gas,
             body: JSON.stringify(data),
-        };
-
-        let resolve = (data) => {
-            if (data.isSuccess === 1) {
-                this._times = data.times;
-
-                alert('兌換成功');
-            } else {
-                alert('兌換失敗');
-            }
-        }
-
-        let functions = {
-            resolve,
         };
 
         this.beforeSend();

@@ -106,13 +106,29 @@ $(function () {
 		$('body').removeClass('openNav');
 	});
 
+	let sunBot = new SunBot;
 	//open popup
 	$('[data-button-item="popup"]').on('click', function(){
 		var target = $(this).data('popup-target');
 		$('body').removeClass('openNav');
-		
-		//if user is NOT logged in
-		$('[data-popup-name="' + target + '"]').fadeIn();
+
+		if (target === 'login') {
+			let resolve = (result) => {
+				window.location.href = 'chatbot.html';
+			}
+
+			//if user is NOT logged in
+			let reject = (error) => {
+				$('[data-popup-name="' + target + '"]').fadeIn();
+			}
+
+			let functions = {
+				resolve,
+				reject,
+			};
+
+			sunBot.getMember(functions);
+		}
 	});
 
 	//close popup

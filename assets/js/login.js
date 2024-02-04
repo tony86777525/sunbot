@@ -8,6 +8,6 @@ $(function () {
             localStorage.setItem(data.name, data.value);
         })
 
-        window.location.href = 'ai.html';
+        window.location.href = 'chatbot.html';
     })
 })

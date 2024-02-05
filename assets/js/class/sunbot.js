@@ -4,7 +4,7 @@ const CWPublishingMemberToken = localStorage.getItem('cw_publishing_memberToken'
 
 const LoginPageUrl = 'login.html';
 // const LoginPageUrl = 'https://web.cw.com.tw/activity/redirect/f2051b3a-5d63-4a23-992f-6fe6a796bb51';
-const gas = 'https://script.google.com/macros/s/AKfycbxNncSrJYBBve5RYaHmtNtC-tyAhgWtc-l3T75U9Wo9eWXzyPSfLOOvxD9rV3CefhoCxw/exec';
+const gas = 'https://script.google.com/macros/s/AKfycbxtMUAT-FYcOeNT2Plp1lTzOWPfXqedZwQ0YaFKJFvmBmm2chcIPlxfxNGQHtOh-m3AmA/exec';
 
 class SunBot {
     constructor() {
@@ -13,6 +13,7 @@ class SunBot {
         this._email = null;
         this._name = null;
         this._times = null;
+        this._exchangeTimes = null;
         this._question = '';
         this._answer = '';
         this._answerToCheckBook = '';
@@ -26,7 +27,7 @@ class SunBot {
         localStorage.setItem('cw_publishing_memberToken', CWPublishingMemberToken);
     }
 
-    async init () {
+    async init (getMemberTimesResolve = () => {}) {
         let resolve = (result) => {
             if (result.success === true) {
                 if (result.code === "0000") {
@@ -44,7 +45,9 @@ class SunBot {
         let functions = {
             resolve,
             reject,
+            getMemberTimesResolve
         };
+
         // get cw member info
         this.getMember(functions).then(() => {
             // get uuid
@@ -124,7 +127,7 @@ class SunBot {
         );
     }
 
-    async getAnswer(question) {
+    async getAnswer(functions, question) {
         this._question = question;
         if (this.isMemberLogin() === false) {
             return;
@@ -135,7 +138,7 @@ class SunBot {
         }
 
         if (this._times <= 0) {
-            alert('沒有次數了');
+            functions.noCount();
 
             return;
         } else {
@@ -147,6 +150,10 @@ class SunBot {
             url: `https://sunbot.aif.tw/answer/${this._uuid}`,
             body: JSON.stringify({"question": this._question})
         }
+
+        functions.beforeSend ?
+            functions.beforeSend(this._question)
+            : () => {};
 
         this.beforeSend();
 
@@ -171,7 +178,7 @@ class SunBot {
             let answerable = data.answerable;
             let recommend = data.recommend;
             let relatedContent = data.related_content;
-
+console.log(answerable);
             switch (answerable) {
                 case 'chat': {
                     this._answer += outText;
@@ -186,12 +193,13 @@ class SunBot {
                     return this.getStream();
                 }
                 case 'reject': {
-                    this._answer += `<div>${outText}</div>`;
+                    this._answer += `${outText}`;
                     // Related Questions
                     if (recommend.question !== undefined) {
-                        this._answerToRelatedQuestion = question;
+                        this._answerToRelatedQuestion = recommend.question;
                     }
-                    this.setAnswer();
+
+                    this.setAnswer(functions);
                 }
             }
         }).then(function (response) {
@@ -221,7 +229,7 @@ class SunBot {
             new Response(stream, { headers: { "Content-Type": "text/html" } }).text(),
         ).then((data) => {
             this._answer = data;
-            this.setAnswer();
+            this.setAnswer(functions);
         }).catch(err => {
         }).finally(() => {
 
@@ -278,19 +286,10 @@ class SunBot {
             )
         }
 
-        let getMemberTimesResolve = (result) => {
+        let resolve = (result) => {
             if (result.isSuccess === true) {
                 this._times = result.times;
-                let questions = result.questions;
-                if (questions) {
-                    let appendContent = '';
-                    questions.forEach((element) => {
-                        appendContent += `<div>Ｑ：${element.question}</div>`;
-                        appendContent += `<div>Ａ：${element.answer}</div>`;
-                        appendContent += `<hr>`
-                    });
-                    $('[data-target="typing"]').append(appendContent);
-                }
+                this._exchangeTimes = result.exchangeTimes;
             }
         }
 
@@ -319,7 +318,11 @@ class SunBot {
 
             return response.json();
         }).then(function (result) {
-            getMemberTimesResolve(result);
+            resolve(result);
+
+            functions.getMemberTimesResolve
+                ? functions.getMemberTimesResolve(result)
+                : () => {};
         }).catch(err => {
             functions.reject
                 ? functions.reject(err)
@@ -384,6 +387,48 @@ class SunBot {
         });
     }
 
+    async checkNumber(functions, number) {
+        if (this.isMemberLogin() === false) {
+            return;
+        }
+
+        let data = {
+            type: 'checkNumber',
+            no: number,
+        };
+
+        let settings = {
+            method: 'POST',
+            url: gas,
+            body: JSON.stringify(data),
+        };
+
+        this.beforeSend();
+
+        return await fetch(
+            settings.url,
+            {
+                method: settings.method,
+                body: settings.body,
+            },
+        ).then((response) => {
+            if (!response.ok) {
+                throw new Error(response.statusText);
+            }
+
+            return response.json();
+        }).then((data) => {
+            functions.resolve ?
+                functions.resolve(data)
+                : () => {};
+        }).catch(err => {
+            functions.reject
+                ? functions.reject(err)
+                : () => {};
+        }).finally(() => {
+            this.final();
+        });
+    }
     async exchangeTimes(functions, number) {
         if (this.isMemberLogin() === false) {
             return;
@@ -434,24 +479,29 @@ class SunBot {
         }
     }
 
-    setAnswer() {
-        let answerElement = this._answer;
+    setAnswer(functions) {
+        functions.answer(this._answer, this._answerToRelatedQuestion, this._answerToCheckBook);
 
-        if (this._answerToCheckBook) {
-            answerElement += `<button class="btn btn-light btn-sm" name="popup" data-value="${this._answerToCheckBook}">查看書中段落</button>`;
-        }
-
-        if (this._answerToRelatedQuestion) {
-            this._answerToRelatedQuestion.forEach((question) => {
-                answerElement += `<button class="btn btn-light btn-sm" name="question" data-value="${question}">${question}</button>`;
-            })
-        }
+        // let answerElement = this._answer;
+        //
+        // if (this._answerToCheckBook) {
+        //     answerElement += `<button class="btn btn-light btn-sm" name="popup" data-value="${this._answerToCheckBook}">查看書中段落</button>`;
+        // }
+        //
+        // if (this._answerToRelatedQuestion) {
+        //     this._answerToRelatedQuestion.forEach((question) => {
+        //         answerElement += `<button class="btn btn-light btn-sm" name="question" data-value="${question}">${question}</button>`;
+        //     })
+        // }
 
         // $('[data-target="typing"]').append(`<div>Ａ：${answerElement}<hr></div>`);
 
-        $('[data-target="typing"]').typing({
-            sourceElement: `<div>Ａ：${answerElement}<hr></div>`
-        });
+        // let target = $('.loadingWrap').closest('.message__msg');
+        // $('.loadingWrap').closest('.message__msg').remove()
+
+        // target.typing({
+        //     sourceElement: `<div>${answerElement}<div>`
+        // });
 
         this.setQuestion();
         this._answer = '';
@@ -494,7 +544,7 @@ class SunBot {
         $('[data-member="name"]').text('');
         $('[data-member="times"]').text('');
 
-        $('.overlay').show();
+        $('.ajaxLoading').show();
     }
 
     final() {
@@ -503,15 +553,15 @@ class SunBot {
         const name = this._name;
         const times = this._times;
 
-        $('[data-member="account"]').text(account);
-        $('[data-member="email"]').text(email);
-        $('[data-member="name"]').text(name);
-        $('[data-member="times"]').text(times);
-
-        // reset
-        $('[name="number"]').val('');
-        $('form[name="question"] input[name="question"]').val('');
-
-        $('.overlay').hide();
+        // $('[data-member="account"]').text(account);
+        // $('[data-member="email"]').text(email);
+        // $('[data-member="name"]').text(name);
+        // $('[data-member="times"]').text(times);
+        //
+        // // reset
+        // $('form[name="question"] input[name="question"]').val('');
+        //
+        $('textarea[name="question"]').text('');
+        $('.ajaxLoading').hide();
     }
 }

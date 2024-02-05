@@ -1083,3 +1083,79 @@ body {
         }
     }
 }
+
+.ajaxLoading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9000;
+    background-color: rgba(0,0,0,.5);
+
+    .loadingio-spinner-pulse {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        @include translate(-50%,-50%);
+    }
+}
+
+@keyframes ldio-1 {
+    0% { top: 36px; height: 128px }
+    50% { top: 60px; height: 80px }
+    100% { top: 60px; height: 80px }
+}
+@keyframes ldio-2 {
+    0% { top: 41.99999999999999px; height: 116.00000000000001px }
+    50% { top: 60px; height: 80px }
+    100% { top: 60px; height: 80px }
+}
+@keyframes ldio-3 {
+    0% { top: 48px; height: 104px }
+    50% { top: 60px; height: 80px }
+    100% { top: 60px; height: 80px }
+}
+
+.loadingio-spinner-pulse {
+    width: 120px;
+    height: 200px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.ldio {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: translateZ(0) scale(1);
+    backface-visibility: hidden;
+    transform-origin: 0 0;
+
+    div { 
+        box-sizing: content-box;
+        position: absolute;
+        width: 20px;
+
+        &:nth-child(1) {
+            left: 0;
+            background: #8cc8f7;
+            animation: ldio-1 1s cubic-bezier(0,0.5,0.5,1) infinite;
+            animation-delay: -0.2s;
+        }
+
+        &:nth-child(2) {
+            left: 50px;
+            background: #badefa;
+            animation: ldio-2 1s cubic-bezier(0,0.5,0.5,1) infinite;
+            animation-delay: -0.1s
+        }
+
+        &:nth-child(3) {
+            left: 100px;
+            background: #ccd0d7;
+            animation: ldio-3 1s cubic-bezier(0,0.5,0.5,1) infinite;
+            animation-delay: undefineds;
+        }
+    }
+}

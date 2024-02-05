@@ -130,6 +130,8 @@ body {
             }
 
             &__messages {
+                scroll-snap-type: y proximity;
+
                 @include mobile {
                     height: calc(100% - 10rem);
                     overflow: scroll;
@@ -138,6 +140,10 @@ body {
                 @include laptops {
                     height: calc(100% - 100px);
                     overflow: scroll;
+                }
+
+                & > *:last-child {
+                    scroll-snap-align: end;
                 }
 
                 .message {

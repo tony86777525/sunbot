@@ -558,6 +558,35 @@ class SunBot {
         )
     }
 
+    appendQuestionnaire() {
+        if (this._times % 8 === 0) {
+            $('.chatroom__messages').append(
+                `<div class="message message--ai">
+					<div class="message__profile">AI孫主任</div>
+					<div class="message__msg">
+						<div class="loadingWrap">
+							<div class="loading loading-0"></div>
+							<div class="loading loading-1"></div>
+							<div class="loading loading-2"></div>
+						</div>
+					</div>
+					<div class="message__actions"></div>
+				</div>`
+            );
+            $('.chatroom__messages').animate({scrollTop: $('.chatroom__messages')[0].scrollHeight}, 0)
+
+            let answer = `謝謝您的體驗！<br>還喜歡 AI 孫主任的服務嗎？<br>邀請您花十分鐘，填寫回饋問卷，讓我可以提供給您更好的服務！`;
+            let buttons = `<a class="action action--related" href="#">填寫問卷回饋</a>`;
+            let target = $('.loadingWrap').closest('.message');
+            target.find('.message__msg').html('').typing({
+                sourceElement: `<div>${answer}<div>`,
+                cb: () => {
+                    target.find('.message__actions').html(buttons);
+                }
+            });
+        }
+    }
+
     isMemberLogin() {
         return this._account !== null
             && this._email !== null

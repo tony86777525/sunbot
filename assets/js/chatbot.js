@@ -12,6 +12,7 @@ $(function () {
 
 	let sunBot = new SunBot;
 	let getMemberTimesResolve = (result) => {
+		$('.exchangeHint').hide();
 		if (result.isSuccess === true) {
 
 			let questions = result.questions;
@@ -32,17 +33,70 @@ $(function () {
 				});
 
 				$('.chatroom__messages').append(appendContent);
-				$('.chatroom__messages').animate({scrollTop: $('.chatroom__messages')[0].scrollHeight}, 0)
+				$('.chatroom__messages').animate({scrollTop: $('.chatroom__messages')[0].scrollHeight}, 0);
+				$('.chatroom').removeClass('is-unstart');
+			}
 
+			let exchangeTimes = result.exchangeTimes;
+			let times = result.times;
+
+			if (exchangeTimes > 0) {
+				$('.chatroom').addClass('is-exchanged');
+				$('.exchangeHint .times').text(times);
+				$('.exchangeHint').show();
 			}
 		}
 	}
 	sunBot.init(getMemberTimesResolve);
 
+	// $(document).on('click', 'button[name="questionButtonTest"]', (event) => {
+	// 	$(event.target).addClass('is-active');
+	// 	// result chat
+	// 	const question = event.target.dataset.value;
+	// 	const testQuestion = testQuestions.find((element) => element.question = question);
+	//
+	// 	$('.chatroom__messages').append(
+	// 		`<div class="message message--user">
+	// 				<div class="message__dialog">${question}</div>
+	// 			</div>
+	// 			<div class="message message--ai">
+	// 				<div class="message__profile">AI孫主任</div>
+	// 				<div class="message__msg">
+	// 					<div class="loadingWrap">
+	// 						<div class="loading loading-0"></div>
+	// 						<div class="loading loading-1"></div>
+	// 						<div class="loading loading-2"></div>
+	// 					</div>
+	// 				</div>
+	// 				<div class="message__actions"></div>
+	// 			</div>`
+	// 	);
+	// 	$('.chatroom__messages').animate({scrollTop: $('.chatroom__messages')[0].scrollHeight}, 0)
+	//
+	// 	let buttons = '';
+	//
+	// 	if (testQuestion.buttons) {
+	// 		testQuestion.buttons.forEach((question) => {
+	// 			buttons += `<button class="action action--recommend" name="questionButton" data-value="${question}">${question}</button>`;
+	// 		});
+	// 	}
+	//
+	// 	let target = $('.loadingWrap').closest('.message');
+	// 	target.find('.message__msg').html('').typing({
+	// 		sourceElement: `<div>${testQuestion.answer}<div>`,
+	// 		cb: () => {
+	// 			target.find('.message__actions').html(buttons);
+	// 		}
+	// 	});
+	//
+	// 	$('.chatroom').removeClass('is-unstart');
+	// })
+
 	$(document).on('click', 'button[name="questionButton"]', (event) => {
 		$(event.target).addClass('is-active');
 		// result chat
 		const question = event.target.dataset.value;
+		const test = $(event.target).attr('data-test') === "true" ? true : false
 
 		let beforeSend = (question) => {
 			$('.chatroom__messages').append(
@@ -88,6 +142,8 @@ $(function () {
 				}
 			});
 
+			$('.chatroom').removeClass('is-unstart');
+
 			return true;
 		}
 
@@ -97,7 +153,7 @@ $(function () {
 			answer
 		};
 
-		sunBot.getAnswer(functions, question);
+		sunBot.getAnswer(functions, question, test);
 	})
 
 	$(document).on('click', 'button[name="questionSubmit"]', (event) => {
@@ -196,11 +252,10 @@ $(function () {
 
 			let resolve = (data) => {
 				if (data.isSuccess === 1) {
-					this._times = data.times;
-					this._exchangeTimes = data._exchangeTimes;
-
 					$('[data-popup-name="' + target + '"]').show();
 					$('[data-popup-name="exchange"]').hide();
+					$('.chatroom').addClass('is-exchanged');
+					$('.exchangeHint').show();
 				} else {
 					$('[data-popup-name="exchange"]').find('.popupContent__status span').text('兌換碼有問題！');
 					$('[data-popup-name="exchange"]').find('.popupContent__status, .exchangeInput').addClass('is-error');
@@ -278,5 +333,4 @@ $(function () {
 
 		sunBot.checkNumber(functions, number);
 	});
-
 });

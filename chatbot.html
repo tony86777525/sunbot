@@ -82,7 +82,7 @@
                         </div>
                         <!-- 如果user已經可以開始自由作答，請拿掉.is-unstart樣式 -->
                         <!-- 如果user已經兌換序號，請加上.is-exchanged樣式 -->
-                        <div class="chatroom">
+                        <div class="chatroom is-unstart">
                             <div class="chatroom__messages">
                                 <div class="message message--ai">
                                     <div class="message__profile">AI孫主任</div>
@@ -91,9 +91,9 @@
                                         在正式開始之前，我想先請問您，學習總經，可以幫助您做什麼？
                                     </div>
                                     <div class="message__actions">
-                                        <button class="action action--recommend" name="questionButton" data-value="做生意賺大錢">做生意賺大錢</button>
-                                        <button class="action action--recommend" name="questionButton" data-value="抓緊投資反轉點">抓緊投資反轉點</button>
-                                        <button class="action action--recommend" name="questionButton" data-value="確保工作與薪資穩定">確保工作與薪資穩定</button>
+                                        <button class="action action--recommend" name="questionButton" data-value="做生意賺大錢" data-test="true">做生意賺大錢</button>
+                                        <button class="action action--recommend" name="questionButton" data-value="抓緊投資反轉點" data-test="true">抓緊投資反轉點</button>
+                                        <button class="action action--recommend" name="questionButton" data-value="確保工作與薪資穩定" data-test="true">確保工作與薪資穩定</button>
                                     </div>
                                 </div>
                             </div>
@@ -102,7 +102,7 @@
                                     <textarea name="question" id="" tabindex="0" cols="5" rows="1" class="insert__textarea" placeholder="您可以在這裡輸入問題"></textarea>
                                     <button type="button" name="questionSubmit" class="insert__send">點擊-送出訊息</button>
                                 </div>
-                                <!-- <div class="exchangeHint">您已完成兌換，還有 <strong>10</strong> 次問答體驗</div> -->
+                                 <div class="exchangeHint">您已完成兌換，還有 <strong class="times">2</strong> 次問答體驗</div>
                             </div>
                         </div>
                     </div>

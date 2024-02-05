@@ -4,7 +4,37 @@ const CWPublishingMemberToken = localStorage.getItem('cw_publishing_memberToken'
 
 const LoginPageUrl = 'login.html';
 // const LoginPageUrl = 'https://web.cw.com.tw/activity/redirect/f2051b3a-5d63-4a23-992f-6fe6a796bb51';
-const gas = 'https://script.google.com/macros/s/AKfycbxtMUAT-FYcOeNT2Plp1lTzOWPfXqedZwQ0YaFKJFvmBmm2chcIPlxfxNGQHtOh-m3AmA/exec';
+const gas = 'https://script.google.com/macros/s/AKfycbxt-kuJxYagZ5bEG9OtN9mIHdbiIa8xFrSXfAN7ebozOFlWeeCJuUzDDBxGxqq5APgOEA/exec';
+
+const testQuestions = [
+    {
+        question: '做生意賺大錢',
+        answer: '許多人都跟您一樣，希望做生意賺大錢，但是市場詭譎多變，各媒體眾聲喧嘩，財經訊息又真假難辨。接下來，我會試著從你最感興趣的面向與提問，幫助你做對經營決策。<br>你最想以哪個面向，了解如何做生意賺大錢？',
+        buttons: [
+            '營業目標怎麼訂？',
+            '下一個世界工廠在哪裡？',
+            '貿易戰、科技戰怎麼打？',
+        ]
+    },
+    {
+        question: '抓緊投資反轉點？',
+        answer: '原來你希望可以抓緊投資反轉點，但是全球市場詭譎多變，各媒體眾聲喧嘩，財經訊息真假難辨。接下來，我會試著從你最感興趣的面向與提問，幫助你做對投資決策。<br>你最想以哪個面向，了解如何抓緊投資反轉點？',
+        buttons: [
+            '影響利率升降的因素',
+            '不想存定存。小資族、退休族該怎麼投資？',
+            '重塑未來的三個經濟動力',
+        ]
+    },
+    {
+        question: '確保工作與薪資穩定？',
+        answer: '許多人都和你一樣，擔心工作與薪資不穩定，但全球政經情勢詭譎多變，各媒體眾聲喧嘩，財經訊息又真假難辨。接下來，我會試著從你最感興趣的面向與提問，幫助你做確保工作與薪資穩定。<br>您最想以哪個面向，確保工作與薪資穩定？',
+        buttons: [
+            '我想了解這世界怎麼了？',
+            '哪些人可能永久失業？',
+            '如何成為市場贏家，不淪為受害者？',
+        ]
+    }
+];
 
 class SunBot {
     constructor() {
@@ -127,10 +157,25 @@ class SunBot {
         );
     }
 
-    async getAnswer(functions, question) {
+    async getAnswer(functions, question, test = false) {
         this._question = question;
         if (this.isMemberLogin() === false) {
             return;
+        }
+
+        if (test === true) {
+            functions.beforeSend ?
+                functions.beforeSend(this._question)
+                : () => {};
+
+            this.beforeSend();
+            const testQuestion = testQuestions.find((element) => element.question = question);
+            this._answer = testQuestion.answer;
+            this._answerToRelatedQuestion = testQuestion.buttons;
+            this.setAnswer(functions);
+            this.final();
+
+            return
         }
 
         if (this._uuid === null) {
@@ -178,7 +223,7 @@ class SunBot {
             let answerable = data.answerable;
             let recommend = data.recommend;
             let relatedContent = data.related_content;
-console.log(answerable);
+
             switch (answerable) {
                 case 'chat': {
                     this._answer += outText;
@@ -232,8 +277,6 @@ console.log(answerable);
             this.setAnswer(functions);
         }).catch(err => {
         }).finally(() => {
-
-
             this.final();
         });
     }
@@ -461,6 +504,11 @@ console.log(answerable);
 
             return response.json();
         }).then((data) => {
+            if (data.isSuccess === 1) {
+                this._times = data.times;
+                this._exchangeTimes = data._exchangeTimes;
+            }
+
             functions.resolve ?
                 functions.resolve(data)
                 : () => {};
@@ -481,27 +529,6 @@ console.log(answerable);
 
     setAnswer(functions) {
         functions.answer(this._answer, this._answerToRelatedQuestion, this._answerToCheckBook);
-
-        // let answerElement = this._answer;
-        //
-        // if (this._answerToCheckBook) {
-        //     answerElement += `<button class="btn btn-light btn-sm" name="popup" data-value="${this._answerToCheckBook}">查看書中段落</button>`;
-        // }
-        //
-        // if (this._answerToRelatedQuestion) {
-        //     this._answerToRelatedQuestion.forEach((question) => {
-        //         answerElement += `<button class="btn btn-light btn-sm" name="question" data-value="${question}">${question}</button>`;
-        //     })
-        // }
-
-        // $('[data-target="typing"]').append(`<div>Ａ：${answerElement}<hr></div>`);
-
-        // let target = $('.loadingWrap').closest('.message__msg');
-        // $('.loadingWrap').closest('.message__msg').remove()
-
-        // target.typing({
-        //     sourceElement: `<div>${answerElement}<div>`
-        // });
 
         this.setQuestion();
         this._answer = '';
@@ -539,29 +566,17 @@ console.log(answerable);
 
     beforeSend() {
         // reset
-        $('[data-member="account"]').text('');
-        $('[data-member="email"]').text('');
-        $('[data-member="name"]').text('');
-        $('[data-member="times"]').text('');
-
+        $('.exchangeHint .times').text('');
         $('.ajaxLoading').show();
     }
 
     final() {
-        const account = this._account;
-        const email = this._email;
-        const name = this._name;
         const times = this._times;
 
-        // $('[data-member="account"]').text(account);
-        // $('[data-member="email"]').text(email);
-        // $('[data-member="name"]').text(name);
-        // $('[data-member="times"]').text(times);
-        //
-        // // reset
-        // $('form[name="question"] input[name="question"]').val('');
-        //
-        $('textarea[name="question"]').text('');
+        $('.exchangeHint .times').text(times);
+
+        // reset
+        $('textarea[name="question"]').val('');
         $('.ajaxLoading').hide();
     }
 }

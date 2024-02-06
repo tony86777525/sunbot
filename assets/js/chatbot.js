@@ -53,6 +53,11 @@ $(function () {
 		$(event.target).addClass('is-active');
 		// result chat
 		const question = event.target.dataset.value;
+
+		if (question === '' || question === undefined) {
+			return;
+		}
+
 		const test = $(event.target).attr('data-test') === "true" ? true : false
 
 		let beforeSend = (question) => {
@@ -116,7 +121,15 @@ $(function () {
 	})
 
 	$(document).on('click', 'button[name="questionSubmit"]', (event) => {
-		const question = $('textarea[name="question"]').val();
+		let question = $('textarea[name="question"]').val();
+
+		if (question === '' || question === undefined) {
+			return;
+		}
+		question = question.trim();
+		if (question === '') {
+			return;
+		}
 
 		let beforeSend = (question) => {
 			$('.chatroom__messages').append(

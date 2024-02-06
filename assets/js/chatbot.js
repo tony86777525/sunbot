@@ -16,7 +16,7 @@ $(function () {
 		if (result.isSuccess === true) {
 
 			let questions = result.questions;
-			if (questions) {
+			if (questions.length !== 0) {
 				let appendContent = '';
 				questions.forEach((element) => {
 					let action = '';
@@ -51,8 +51,8 @@ $(function () {
 				$('.exchangeHint .times').text(times);
 				$('.exchangeHint').show();
 				$('.nav__links')
-					.append(`<a class="link link&#45;&#45;text is-mb" href="#">2024 總體經濟白皮書</a>`)
-					.prepend(`<a class="link link--text is-pc" href="#">2024 總體經濟白皮書</a>`);
+					.append(`<a class="link link&#45;&#45;text is-mb" href="https://pse.is/5kx5kw" target="_blank">2024 總體經濟白皮書</a>`)
+					.prepend(`<a class="link link--text is-pc" href="https://pse.is/5kx5kw" target="_blank">2024 總體經濟白皮書</a>`);
 			}
 		}
 	}
@@ -71,15 +71,10 @@ $(function () {
 
 		let beforeSend = (question) => {
 			$('.chatroom__messages').append(
-				`<div class="message message--user" style="display: none;">
+				`<div class="message message--user" style="opacity: 0;">
 					<div class="message__dialog">${question}</div>
-				</div>`
-			);
-			$('.chatroom__messages').animate({scrollTop: $('.chatroom__messages')[0].scrollHeight}, 0)
-
-			$('.chatroom__messages .message:last').fadeIn(600, () => {
-				$('.chatroom__messages').append(
-					`<div class="message message--ai">
+				</div>
+				<div class="message message--ai" style="display: none;">
 					<div class="message__profile">AI孫主任</div>
 					<div class="message__msg">
 						<div class="loadingWrap">
@@ -90,7 +85,11 @@ $(function () {
 					</div>
 					<div class="message__actions"></div>
 				</div>`
-				);
+			);
+			$('.chatroom__messages').animate({scrollTop: $('.chatroom__messages')[0].scrollHeight}, 0)
+
+			$('.chatroom__messages .message--user:last').animate({opacity: 1}, 600, () => {
+				$('.chatroom__messages .message--ai:last').show();
 				$('.chatroom__messages').animate({scrollTop: $('.chatroom__messages')[0].scrollHeight}, 0)
 			})
 		};
@@ -116,12 +115,10 @@ $(function () {
 				sourceElement: `<div>${answer}<div>`,
 				cb: () => {
 					target.find('.message__actions').html(buttons);
-
+					$('.chatroom').removeClass('is-unstart');
 					sunBot.appendQuestionnaire();
 				}
 			});
-
-			$('.chatroom').removeClass('is-unstart');
 
 			return true;
 		}
@@ -148,15 +145,10 @@ $(function () {
 
 		let beforeSend = (question) => {
 			$('.chatroom__messages').append(
-				`<div class="message message--user" style="display: none;">
+				`<div class="message message--user" style="opacity: 0;">
 					<div class="message__dialog">${question}</div>
-				</div>`
-			);
-			$('.chatroom__messages').animate({scrollTop: $('.chatroom__messages')[0].scrollHeight}, 0)
-
-			$('.chatroom__messages .message:last').fadeIn(600, () => {
-				$('.chatroom__messages').append(
-					`<div class="message message--ai">
+				</div>
+				<div class="message message--ai" style="display: none;">
 					<div class="message__profile">AI孫主任</div>
 					<div class="message__msg">
 						<div class="loadingWrap">
@@ -167,10 +159,14 @@ $(function () {
 					</div>
 					<div class="message__actions"></div>
 				</div>`
-				);
+			);
+			$('.chatroom__messages').animate({scrollTop: $('.chatroom__messages')[0].scrollHeight}, 0)
+
+			$('.chatroom__messages .message--user:last').animate({opacity: 1}, 600, () => {
+				$('.chatroom__messages .message--ai:last').show();
 				$('.chatroom__messages').animate({scrollTop: $('.chatroom__messages')[0].scrollHeight}, 0)
 			})
-		}
+		};
 
 		let noCount = () => {
 			$('[data-popup-item="group"][data-popup-name="trial"]').show();
@@ -251,8 +247,8 @@ $(function () {
 					$('.chatroom').addClass('is-exchanged');
 					$('.exchangeHint').show();
 					$('.nav__links')
-						.append(`<a class="link link&#45;&#45;text is-mb" href="#">2024 總體經濟白皮書</a>`)
-						.prepend(`<a class="link link--text is-pc" href="#">2024 總體經濟白皮書</a>`);
+						.append(`<a class="link link&#45;&#45;text is-mb" href="https://pse.is/5kx5kw" target="_blank">2024 總體經濟白皮書</a>`)
+						.prepend(`<a class="link link--text is-pc" href="https://pse.is/5kx5kw" target="_blank">2024 總體經濟白皮書</a>`);
 				} else {
 					$('[data-popup-name="exchange"]').find('.popupContent__status span').text('兌換碼有問題！');
 					$('[data-popup-name="exchange"]').find('.popupContent__status, .exchangeInput').addClass('is-error');

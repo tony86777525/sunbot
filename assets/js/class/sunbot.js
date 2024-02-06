@@ -69,7 +69,7 @@ class SunBot {
         }
 
         let reject = (error) => {
-            window.location.href = 'login.html';
+            window.location.href = 'index.html';
         }
 
         let functions = {
@@ -560,7 +560,7 @@ class SunBot {
     }
 
     appendQuestionnaire() {
-        if (this._times % 8 === 0) {
+        if (this._times % 10 === 2 && this._exchangeTimes > 0) {
             $('.chatroom__messages').append(
                 `<div class="message message--ai">
 					<div class="message__profile">AI孫主任</div>
@@ -577,7 +577,7 @@ class SunBot {
             $('.chatroom__messages').animate({scrollTop: $('.chatroom__messages')[0].scrollHeight}, 0)
 
             let answer = `謝謝您的體驗！<br>還喜歡 AI 孫主任的服務嗎？<br>邀請您花十分鐘，填寫回饋問卷，讓我可以提供給您更好的服務！`;
-            let buttons = `<a class="action action--related" href="#">填寫問卷回饋</a>`;
+            let buttons = `<a class="action action--related" href="#" target="_blank">填寫問卷回饋</a>`;
             let target = $('.loadingWrap').closest('.message');
             target.find('.message__msg').html('').typing({
                 sourceElement: `<div>${answer}<div>`,

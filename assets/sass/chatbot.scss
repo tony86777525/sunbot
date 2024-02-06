@@ -59,6 +59,14 @@ body {
     &__wrap {
         position: relative;
         height: 100%;
+
+        @include laptops {
+            display: flex;
+        }
+
+        @include laptopsPC {
+            display: block;
+        }
     }
 
     &__dialog {
@@ -73,8 +81,13 @@ body {
             display: flex;
             align-items: flex-end;
             padding-top: 30px;
-            padding-left: 48px;
+            padding-left: 0;
             height: calc(100% - 68px);
+            flex: 0 0 calc(100% - 387px);
+        }
+
+        @include laptopsPC {
+            padding-left: 48px;
         }
 
         .guide {
@@ -124,12 +137,16 @@ body {
             }
 
             @include laptops {
-                flex: 0 0 850px;
+                flex: 0 0 calc(100% - 62px);
                 margin-left: 30px;
                 border: 2px solid #CBE8F8;
                 border-radius: 16px;
                 padding: 30px 40px 0;
                 box-shadow: 0 2px 5px rgba(0,0,0,.15);
+            }
+
+            @include laptopsPC {
+                flex: 0 0 850px;
             }
 
             &__wrap {

@@ -4,7 +4,7 @@ const CWPublishingMemberToken = localStorage.getItem('cw_publishing_memberToken'
 
 const LoginPageUrl = 'login.html';
 // const LoginPageUrl = 'https://web.cw.com.tw/activity/redirect/f2051b3a-5d63-4a23-992f-6fe6a796bb51';
-const gas = 'https://script.google.com/macros/s/AKfycbxt-kuJxYagZ5bEG9OtN9mIHdbiIa8xFrSXfAN7ebozOFlWeeCJuUzDDBxGxqq5APgOEA/exec';
+const gas = 'https://script.google.com/macros/s/AKfycbzQLU7SN_K-T-ca2IzsU6EFS5042nDYQomY2nTUXAkTmvMfwyy1dvapa0Va7iUJMilBIQ/exec';
 
 $(function () {
     let sunBot = new SunBot;

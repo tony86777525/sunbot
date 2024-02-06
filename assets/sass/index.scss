@@ -269,6 +269,13 @@ body {
                     }
 
                     @include laptops {
+                        width: 87px;
+                        height: 87px;
+                        top: -17%;
+                        right: -20%;
+                    }
+
+                    @include laptopsPC {
                         width: 107px;
                         height: 107px;
                         top: -20%;

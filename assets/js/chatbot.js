@@ -28,7 +28,9 @@ $(function () {
 							<div class="message__msg">
 								${element.answer}
 							</div>
-							<div class="message__actions"></div>
+							<div class="message__actions">
+								<button class="action action--related" data-button-item="popup" data-popup-target="related" data-value="${element.related}">書中相關段落</button>
+							</div>
 						</div>`;
 				});
 
@@ -45,8 +47,8 @@ $(function () {
 				$('.exchangeHint .times').text(times);
 				$('.exchangeHint').show();
 				$('.nav__links')
-					.append(`<a class="link link&#45;&#45;text is-mb" href="#">下載《2024 財經白皮書》</a>`)
-					.prepend(`<a class="link link--text is-pc" href="#">下載《2024 財經白皮書》</a>`);
+					.append(`<a class="link link&#45;&#45;text is-mb" href="#">2024 總體經濟白皮書</a>`)
+					.prepend(`<a class="link link--text is-pc" href="#">2024 總體經濟白皮書</a>`);
 			}
 		}
 	}
@@ -234,8 +236,8 @@ $(function () {
 					$('.chatroom').addClass('is-exchanged');
 					$('.exchangeHint').show();
 					$('.nav__links')
-						.append(`<a class="link link&#45;&#45;text is-mb" href="#">下載《2024 財經白皮書》</a>`)
-						.prepend(`<a class="link link--text is-pc" href="#">下載《2024 財經白皮書》</a>`);
+						.append(`<a class="link link&#45;&#45;text is-mb" href="#">2024 總體經濟白皮書</a>`)
+						.prepend(`<a class="link link--text is-pc" href="#">2024 總體經濟白皮書</a>`);
 				} else {
 					$('[data-popup-name="exchange"]').find('.popupContent__status span').text('兌換碼有問題！');
 					$('[data-popup-name="exchange"]').find('.popupContent__status, .exchangeInput').addClass('is-error');

@@ -234,7 +234,7 @@ body {
 body.opened {
   overflow: hidden;
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   body {
     font-family: "Roboto", "Noto Sans TC", "思源黑體 TC", "思源黑體 TW", "思源黑體", "微軟正黑體", "繁黑體", "Microsoft JhengHei", "Lato", "Arial", "Segoe UI Emoji", "Segoe UI Symbol", "新細明體", sans-serif;
     font-display: swap;
@@ -244,7 +244,7 @@ body.opened {
 a, button.btn {
   text-decoration: none;
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   a, button.btn {
     -webkit-transition: color 0.2s, border 0.2s, background 0.2s;
     transition: color 0.2s, border 0.2s, background 0.2s;
@@ -283,7 +283,7 @@ body.openNav .nav {
     padding: 2rem 2rem 0;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .header {
     padding: 20px 0 0;
   }
@@ -305,7 +305,7 @@ body.openNav .nav {
     display: block;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .header .logo {
     width: 103px;
   }
@@ -339,7 +339,7 @@ body.openNav .nav {
     transition: right 0.3s ease-in;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .header .nav {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -370,7 +370,7 @@ body.openNav .nav {
   background-size: 3.2rem;
   background-repeat: no-repeat;
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .header .nav .nav__close {
     display: none;
   }
@@ -397,7 +397,7 @@ body.openNav .nav {
         flex-wrap: wrap;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .header .nav .nav__links {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -426,7 +426,7 @@ body.openNav .nav {
     background-color: transparent;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .header .nav .nav__links .link {
     display: block;
     font-size: 16px;
@@ -443,13 +443,13 @@ body.openNav .nav {
     margin-right: 0;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .header .nav .nav__links .link--text {
     margin-right: 50px;
     text-decoration: underline;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .header .nav .nav__links .link--button {
     padding: 12px 32px;
     border: 1px solid #000000;
@@ -466,7 +466,7 @@ body.openNav .nav {
     display: none;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .header .nav .nav__links .link.is-mb {
     display: none;
   }
@@ -502,7 +502,7 @@ body.openNav .nav {
   font-size: 1.4rem;
   font-weight: 500;
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .header .nav .nav__footer {
     display: none;
   }
@@ -517,7 +517,7 @@ body.openNav .nav {
     background-repeat: no-repeat;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .header .burger {
     display: none;
   }
@@ -527,7 +527,12 @@ body.openNav .nav {
   max-width: 1440px;
   margin: 0 auto;
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
+  .wrapper {
+    padding: 0 20px;
+  }
+}
+@media only screen and (min-width: 1440px) {
   .wrapper {
     padding: 0 75px;
   }
@@ -561,7 +566,7 @@ body.openNav .nav {
             align-items: flex-start;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .footer--index .wrapper {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -581,16 +586,20 @@ body.openNav .nav {
     display: none;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .footer--chatbot .footer__powerby {
     margin-right: 20px;
-    padding-left: 48px;
   }
   .footer--chatbot .footer__copyright,
   .footer--chatbot .footer__nav {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .footer--chatbot {
+    padding-left: 48px;
   }
 }
 @media only screen and (min-width: 320px) {
@@ -603,7 +612,7 @@ body.openNav .nav {
         flex-wrap: nowrap;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .footer--chatbot .wrapper {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -613,7 +622,7 @@ body.openNav .nav {
         flex-wrap: nowrap;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .footer {
     position: fixed;
     bottom: 0;
@@ -643,7 +652,7 @@ body.openNav .nav {
     margin-right: 1rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .footer__powerby .label {
     font-size: 12px;
     margin-right: 10px;
@@ -654,7 +663,7 @@ body.openNav .nav {
     width: 18rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .footer__powerby .logo {
     width: 180px;
   }
@@ -668,7 +677,7 @@ body.openNav .nav {
     font-size: 1.4rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .footer__copyright {
     font-size: 14px;
   }
@@ -686,7 +695,7 @@ body.openNav .nav {
     margin-top: 1rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .footer__nav {
     margin-top: 0;
     margin-left: 20px;
@@ -700,7 +709,7 @@ body.openNav .nav {
     margin-right: 2rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .footer__nav > li {
     margin-right: 20px;
   }
@@ -715,7 +724,7 @@ body.openNav .nav {
     font-size: 1.4rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .footer__nav .link {
     font-size: 14px;
     -webkit-transition: all 0.3s ease-in;
@@ -744,7 +753,7 @@ body.openNav .nav {
   left: 0;
   z-index: 5;
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup__overlay {
     cursor: pointer;
   }
@@ -757,8 +766,8 @@ body.openNav .nav {
   background-color: transparent;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   overflow: hidden;
 }
 .popup__content:before {
@@ -783,7 +792,7 @@ body.openNav .nav {
     border-radius: 1rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup__content {
     border-radius: 10px;
   }
@@ -798,7 +807,7 @@ body.openNav .nav {
     padding: 6rem 3rem 3rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup__content .wrap {
     padding: 60px 30px 30px;
   }
@@ -814,7 +823,7 @@ body.openNav .nav {
     top: 2.2rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup__content .popupClose {
     right: 22px;
     top: 22px;
@@ -833,7 +842,7 @@ body.openNav .nav {
     background-size: 3rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup__content .popupClose .popupClose__btn {
     width: 30px;
     height: 30px;
@@ -866,7 +875,7 @@ body.openNav .nav {
     font-size: 1.8rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup__content .popupContent__info .alertInfo {
     font-size: 18px;
   }
@@ -881,7 +890,7 @@ body.openNav .nav {
     margin-bottom: 2rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup__content .popupContent__info .paragraph > div {
     font-size: 16px;
     margin-bottom: 20px;
@@ -902,7 +911,7 @@ body.openNav .nav {
     font-size: 1.6rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup__content .popupContent__info .related {
     font-size: 16px;
   }
@@ -920,7 +929,7 @@ body.openNav .nav {
     margin-bottom: 4rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup__content .popupContent__info .guide > div {
     font-size: 18px;
     margin-bottom: 40px;
@@ -938,7 +947,7 @@ body.openNav .nav {
     margin-bottom: 1rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup__content .popupContent__info .guide strong {
     font-size: 16px;
     margin-bottom: 10px;
@@ -955,7 +964,7 @@ body.openNav .nav {
     font-size: 1.6rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup__content .popupContent__info .guide ul > li {
     position: relative;
     font-size: 16px;
@@ -967,7 +976,7 @@ body.openNav .nav {
     padding-right: 8px;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup__content .popupContent__info .guide ul > li span {
     padding-right: 0;
     position: absolute;
@@ -985,7 +994,7 @@ body.openNav .nav {
     margin-bottom: 2rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup__content .popupContent__info .rules > div {
     font-size: 16px;
     margin-bottom: 20px;
@@ -1010,7 +1019,7 @@ body.openNav .nav {
     line-height: 2rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup__content .popupContent__info .rules .blankLink {
     font-size: 18px;
     padding-left: 30px;
@@ -1037,7 +1046,7 @@ body.openNav .nav {
     height: 2rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup__content .popupContent__info .rules .blankLink:before {
     width: 20px;
     height: 20px;
@@ -1051,7 +1060,7 @@ body.openNav .nav {
     margin-bottom: 2rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup__content .popupContent__info .author .author__group {
     margin-bottom: 40px;
   }
@@ -1069,7 +1078,7 @@ body.openNav .nav {
             flex-direction: column;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup__content .popupContent__info .author__group {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -1093,7 +1102,7 @@ body.openNav .nav {
             flex-direction: row;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup__content .popupContent__info .author__group .basic {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 100px;
@@ -1113,7 +1122,7 @@ body.openNav .nav {
     margin-right: 1rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup__content .popupContent__info .author__group .basic__img {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 auto;
@@ -1131,7 +1140,7 @@ body.openNav .nav {
     font-size: 1.6rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup__content .popupContent__info .author__group .basic__name {
     font-size: 16px;
   }
@@ -1145,7 +1154,7 @@ body.openNav .nav {
     font-size: 1.6rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup__content .popupContent__info .author__group .text {
     font-size: 16px;
   }
@@ -1166,7 +1175,7 @@ body.openNav .nav {
     margin-top: 40px;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup__content .popupContent__action {
     margin-top: 40px;
   }
@@ -1199,7 +1208,7 @@ body.openNav .nav {
     margin: 0 1rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup__content .popupContent__action .link--button {
     padding: 12px 32px;
     border-radius: 4px;
@@ -1248,7 +1257,7 @@ body.openNav .nav {
     margin-bottom: 2rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup__content .popupContent__status {
     margin-bottom: 20px;
   }
@@ -1266,7 +1275,7 @@ body.openNav .nav {
     background-size: 2rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup__content .popupContent__status:before {
     margin-right: 10px;
     width: 20px;
@@ -1284,7 +1293,7 @@ body.openNav .nav {
     font-size: 2rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup__content .popupContent__status span {
     font-size: 22px;
   }
@@ -1329,7 +1338,7 @@ body.openNav .nav {
     border-radius: 1.2rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup__content .popupContent__exchange .exchangeInput {
     width: 320px;
     font-size: 32px;
@@ -1352,7 +1361,7 @@ body.openNav .nav {
     margin-top: 2rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup__content .popupContent__exchange .codeStatus {
     font-size: 18px;
     margin-top: 20px;
@@ -1363,7 +1372,7 @@ body.openNav .nav {
     margin-top: 2rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup__content .popupContent__exchange + .popupContent__action {
     margin-top: 20px;
   }
@@ -1373,7 +1382,7 @@ body.openNav .nav {
     margin-top: 3rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup__content .popupContent__exchange + .popupContent__action + .popupContent__info {
     margin-top: 30px;
   }
@@ -1383,7 +1392,7 @@ body.openNav .nav {
     width: calc(100% - 4rem);
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup--alert .popup__content {
     max-width: 400px;
   }
@@ -1397,7 +1406,7 @@ body.openNav .nav {
     margin-bottom: 1.6rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup--alert .popupContent__title {
     font-size: 22px;
     margin-bottom: 16px;
@@ -1409,7 +1418,7 @@ body.openNav .nav {
     max-height: 85dvh;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup--default .popup__content {
     max-width: 630px;
     max-height: 65vh;
@@ -1423,7 +1432,7 @@ body.openNav .nav {
     max-height: calc(85dvh - 9rem);
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup--default .popupContent {
     max-height: calc(65vh - 90px);
   }
@@ -1437,7 +1446,7 @@ body.openNav .nav {
     margin-bottom: 2rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .popup--default .popupContent__title {
     font-size: 18px;
     margin-bottom: 20px;
@@ -1594,6 +1603,16 @@ body.openNav .nav {
           animation: ldio-3 1s cubic-bezier(0, 0.5, 0.5, 1) infinite;
   -webkit-animation-delay: undefineds;
           animation-delay: undefineds;
+}
+
+.aiLoading {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
 }
 
 @font-face {
@@ -5712,7 +5731,7 @@ body.openNav .nav {
     height: 10rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .percentage {
     width: 120px;
     height: 120px;
@@ -6091,12 +6110,12 @@ body.openNav .nav {
     font-size: 1.6666666667vw;
   }
 }
-@media only screen and (min-width: 1025px) and (max-width: 1180px) {
+@media only screen and (min-width: 1025px) and (max-width: 1179px) {
   html {
     font-size: 0.9765625vw;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   html {
     font-size: 16px;
   }
@@ -6115,7 +6134,7 @@ body.fixed {
     padding: 2rem 2rem 0;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   body.fixed .main {
     height: calc(100dvh - 70px);
     padding: 0;
@@ -6132,6 +6151,18 @@ body.fixed {
   position: relative;
   height: 100%;
 }
+@media only screen and (min-width: 1180px) {
+  .chatdialog__wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .chatdialog__wrap {
+    display: block;
+  }
+}
 .chatdialog__dialog {
   position: relative;
   z-index: 5;
@@ -6141,7 +6172,7 @@ body.fixed {
     height: 100%;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .chatdialog__dialog {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -6150,8 +6181,16 @@ body.fixed {
         -ms-flex-align: end;
             align-items: flex-end;
     padding-top: 30px;
-    padding-left: 48px;
+    padding-left: 0;
     height: calc(100% - 68px);
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 calc(100% - 387px);
+            flex: 0 0 calc(100% - 387px);
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .chatdialog__dialog {
+    padding-left: 48px;
   }
 }
 @media only screen and (min-width: 320px) {
@@ -6162,7 +6201,7 @@ body.fixed {
     right: 1rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .chatdialog__dialog .guide {
     position: static;
   }
@@ -6181,7 +6220,7 @@ body.fixed {
     background-size: 2rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .chatdialog__dialog .guide__icon {
     width: 32px;
     height: 32px;
@@ -6202,17 +6241,24 @@ body.fixed {
             box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.15);
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .chatdialog__dialog .chatroom {
     -webkit-box-flex: 0;
-        -ms-flex: 0 0 850px;
-            flex: 0 0 850px;
+        -ms-flex: 0 0 calc(100% - 62px);
+            flex: 0 0 calc(100% - 62px);
     margin-left: 30px;
     border: 2px solid #CBE8F8;
     border-radius: 16px;
     padding: 30px 40px 0;
     -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .chatdialog__dialog .chatroom {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 850px;
+            flex: 0 0 850px;
   }
 }
 .chatdialog__dialog .chatroom__wrap {
@@ -6229,7 +6275,7 @@ body.fixed {
     overflow: scroll;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .chatdialog__dialog .chatroom__messages {
     height: calc(100% - 100px);
     overflow: scroll;
@@ -6246,7 +6292,7 @@ body.fixed {
     margin-bottom: 3rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .chatdialog__dialog .chatroom__messages .message {
     margin-bottom: 40px;
   }
@@ -6256,7 +6302,7 @@ body.fixed {
     padding: 1rem 0;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .chatdialog__dialog .chatroom__messages .loadingWrap {
     padding: 10px 0;
   }
@@ -6272,7 +6318,7 @@ body.fixed {
     padding: 2rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .chatdialog__dialog .chatroom__input {
     padding: 20px 40px;
   }
@@ -6283,13 +6329,13 @@ body.fixed {
     font-size: 1.4rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .chatdialog__dialog .chatroom__input .exchangeHint {
     margin-top: 10px;
     font-size: 14px;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .chatdialog__dialog .chatroom .message--ai {
     padding-right: 70px;
   }
@@ -6308,7 +6354,7 @@ body.fixed {
     font-size: 1.6rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .chatdialog__dialog .chatroom .message--ai .message__profile {
     font-size: 16px;
   }
@@ -6326,7 +6372,7 @@ body.fixed {
     margin-right: 1rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .chatdialog__dialog .chatroom .message--ai .message__profile:before {
     width: 50px;
     height: 50px;
@@ -6344,7 +6390,7 @@ body.fixed {
     font-size: 1.6rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .chatdialog__dialog .chatroom .message--ai .message__msg {
     margin-top: 0;
     font-size: 16px;
@@ -6370,7 +6416,7 @@ body.fixed {
     margin-top: 1rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .chatdialog__dialog .chatroom .message--ai .message__actions {
     margin-top: 10px;
     padding-left: 60px;
@@ -6384,7 +6430,7 @@ body.fixed {
     margin-bottom: 1.4rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .chatdialog__dialog .chatroom .message--ai .message__actions .action {
     margin-bottom: 14px;
   }
@@ -6403,7 +6449,7 @@ body.fixed {
     font-size: 1.3rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .chatdialog__dialog .chatroom .message--ai .message__actions .action--related {
     font-size: 13px;
   }
@@ -6421,7 +6467,7 @@ body.fixed {
     border-radius: 2.8rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .chatdialog__dialog .chatroom .message--ai .message__actions .action--recommend {
     border: 1px solid #4593D0;
     font-size: 14px;
@@ -6452,7 +6498,7 @@ body.fixed {
     padding-right: 1.4rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .chatdialog__dialog .chatroom .message--user {
     padding-right: 14px;
   }
@@ -6471,7 +6517,7 @@ body.fixed {
     border-radius: 1rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .chatdialog__dialog .chatroom .message--user .message__dialog {
     padding: 12px 22px;
     font-size: 16px;
@@ -6493,7 +6539,7 @@ body.fixed {
     background-size: 1.4rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .chatdialog__dialog .chatroom .message--user .message__dialog:after {
     width: 14px;
     height: 14px;
@@ -6517,7 +6563,7 @@ body.fixed {
     border: 0.1rem solid #828282;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .chatdialog__dialog .chatroom .insert {
     padding: 15px 22px;
     border: 1px solid #828282;
@@ -6545,7 +6591,7 @@ body.fixed {
     font-size: 1.6rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .chatdialog__dialog .chatroom .insert__textarea {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 calc(100% - 28px);
@@ -6569,7 +6615,7 @@ body.fixed {
     background-size: 2.8rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .chatdialog__dialog .chatroom .insert__send {
     width: 28px;
     height: 28px;
@@ -6584,7 +6630,7 @@ body.fixed {
     padding-bottom: 2rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .chatdialog__dialog .chatroom.is-unstart {
     padding-bottom: 20px;
   }
@@ -6600,7 +6646,7 @@ body.fixed {
     height: calc(100% - 13.1rem);
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .chatdialog__dialog .chatroom.is-exchanged .chatroom__messages {
     height: calc(100% - 131px);
   }
@@ -6616,7 +6662,7 @@ body.fixed {
     display: none;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .chatdialog__kv {
     display: block;
     width: 387px;
@@ -6649,7 +6695,7 @@ body.fixed {
     margin-right: 0.5rem;
   }
 }
-@media only screen and (min-width: 1181px) {
+@media only screen and (min-width: 1180px) {
   .loading {
     width: 10px;
     height: 10px;

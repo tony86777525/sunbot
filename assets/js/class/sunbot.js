@@ -4,7 +4,7 @@ const CWPublishingMemberToken = localStorage.getItem('cw_publishing_memberToken'
 
 const LoginPageUrl = 'login.html';
 // const LoginPageUrl = 'https://web.cw.com.tw/activity/redirect/f2051b3a-5d63-4a23-992f-6fe6a796bb51';
-const gas = 'https://script.google.com/macros/s/AKfycbxt-kuJxYagZ5bEG9OtN9mIHdbiIa8xFrSXfAN7ebozOFlWeeCJuUzDDBxGxqq5APgOEA/exec';
+const gas = 'https://script.google.com/macros/s/AKfycbzQLU7SN_K-T-ca2IzsU6EFS5042nDYQomY2nTUXAkTmvMfwyy1dvapa0Va7iUJMilBIQ/exec';
 
 const testQuestions = [
     {
@@ -143,7 +143,7 @@ class SunBot {
             url: `https://sunbot.aif.tw/stream/${this._uuid}`,
         }
 
-        this.beforeSend();
+        this.beforeSend(true);
 
         return fetch(
             settings.url,
@@ -168,12 +168,12 @@ class SunBot {
                 functions.beforeSend(this._question)
                 : () => {};
 
-            this.beforeSend();
+            this.beforeSend(true);
             const testQuestion = testQuestions.find((element) => element.question = question);
             this._answer = testQuestion.answer;
             this._answerToRelatedQuestion = testQuestion.buttons;
             this.setAnswer(functions);
-            this.final();
+            this.final(true);
 
             return
         }
@@ -200,7 +200,7 @@ class SunBot {
             functions.beforeSend(this._question)
             : () => {};
 
-        this.beforeSend();
+        this.beforeSend(true);
 
         await fetch(
             settings.url,
@@ -277,7 +277,7 @@ class SunBot {
             this.setAnswer(functions);
         }).catch(err => {
         }).finally(() => {
-            this.final();
+            this.final(true);
         });
     }
 
@@ -403,7 +403,7 @@ class SunBot {
             resolve,
         };
 
-        this.beforeSend();
+        this.beforeSend(true);
 
         return await fetch(
             settings.url,
@@ -426,7 +426,7 @@ class SunBot {
                 ? functions.reject(err)
                 : () => {};
         }).finally(() => {
-            this.final();
+            this.final(true);
         });
     }
 
@@ -541,7 +541,8 @@ class SunBot {
             type: 'question',
             email: this._email,
             question: this._question,
-            answer: this._answer
+            answer: this._answer,
+            related: this._answerToCheckBook
         };
 
         let settings = {
@@ -593,19 +594,29 @@ class SunBot {
             && this._name !== null;
     }
 
-    beforeSend() {
+    beforeSend(isAnswer = false) {
         // reset
+        if (isAnswer === true) {
+            $('.aiLoading').show();
+        } else {
+            $('.ajaxLoading').show();
+        }
+
         $('.exchangeHint .times').text('');
-        $('.ajaxLoading').show();
     }
 
-    final() {
+    final(isAnswer = false) {
         const times = this._times;
 
         $('.exchangeHint .times').text(times);
 
         // reset
         $('textarea[name="question"]').val('');
-        $('.ajaxLoading').hide();
+
+        if (isAnswer === true) {
+            $('.aiLoading').hide();
+        } else {
+            $('.ajaxLoading').hide();
+        }
     }
 }

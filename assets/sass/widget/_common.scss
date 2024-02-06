@@ -236,8 +236,12 @@ body {
 .wrapper {
     max-width: 1440px;
     margin: 0 auto;
-    
+
     @include laptops {
+        padding: 0 20px;
+    }
+
+    @include laptopsPC {
         padding: 0 75px;
     }
 }
@@ -285,12 +289,15 @@ body {
 
             .footer__powerby {
                 margin-right: 20px;
-                padding-left: 48px;
             }
             .footer__copyright,
             .footer__nav {
                 display: flex;
             }
+        }
+
+        @include laptopsPC {
+            padding-left: 48px;
         }
 
         .wrapper {
@@ -434,8 +441,8 @@ body {
         left: 50%;
         background-color: transparent;
         @include translate(-50%,-50%);
-        -webkit-backdrop-filter: blur(5px);
-        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
         overflow: hidden;
 
         &:before {
@@ -1160,4 +1167,14 @@ body {
             animation-delay: undefineds;
         }
     }
+}
+
+.aiLoading {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
 }

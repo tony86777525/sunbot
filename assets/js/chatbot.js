@@ -44,6 +44,9 @@ $(function () {
 				$('.chatroom').addClass('is-exchanged');
 				$('.exchangeHint .times').text(times);
 				$('.exchangeHint').show();
+				$('.nav__links')
+					.append(`<a class="link link&#45;&#45;text is-mb" href="#">下載《2024 財經白皮書》</a>`)
+					.prepend(`<a class="link link--text is-pc" href="#">下載《2024 財經白皮書》</a>`);
 			}
 		}
 	}
@@ -230,6 +233,9 @@ $(function () {
 					$('[data-popup-name="exchange"]').hide();
 					$('.chatroom').addClass('is-exchanged');
 					$('.exchangeHint').show();
+					$('.nav__links')
+						.append(`<a class="link link&#45;&#45;text is-mb" href="#">下載《2024 財經白皮書》</a>`)
+						.prepend(`<a class="link link--text is-pc" href="#">下載《2024 財經白皮書》</a>`);
 				} else {
 					$('[data-popup-name="exchange"]').find('.popupContent__status span').text('兌換碼有問題！');
 					$('[data-popup-name="exchange"]').find('.popupContent__status, .exchangeInput').addClass('is-error');

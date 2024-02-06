@@ -611,7 +611,7 @@ class SunBot {
         $('.exchangeHint .times').text(times);
 
         // reset
-        $('textarea[name="question"]').val('');
+        $('input[name="question"]').val('');
 
         if (isAnswer === true) {
             $('.aiLoading').hide();

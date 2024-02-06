@@ -133,7 +133,7 @@ $(function () {
 	})
 
 	$(document).on('click', 'button[name="questionSubmit"]', (event) => {
-		let question = $('textarea[name="question"]').val();
+		let question = $('input[name="question"]').val();
 
 		if (question === '' || question === undefined) {
 			return;

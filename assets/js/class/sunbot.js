@@ -187,6 +187,10 @@ class SunBot {
 
             return;
         } else {
+            functions.beforeSend ?
+                functions.beforeSend(this._question)
+                : () => {};
+
             await this.usingTimes();
         }
 
@@ -195,10 +199,6 @@ class SunBot {
             url: `https://sunbot.aif.tw/answer/${this._uuid}`,
             body: JSON.stringify({"question": this._question})
         }
-
-        functions.beforeSend ?
-            functions.beforeSend(this._question)
-            : () => {};
 
         this.beforeSend(true);
 

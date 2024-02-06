@@ -382,7 +382,7 @@ class SunBot {
 
         let data = {
             type: 'usingTimes',
-            email: this._email,
+            account: this._account,
         };
 
         let settings = {
@@ -479,7 +479,7 @@ class SunBot {
 
         let data = {
             type: 'exchangeTimes',
-            email: this._email,
+            account: this._account,
             no: number,
         };
 
@@ -539,7 +539,7 @@ class SunBot {
     setQuestion() {
         let data = {
             type: 'question',
-            email: this._email,
+            account: this._account,
             question: this._question,
             answer: this._answer,
             related: this._answerToCheckBook

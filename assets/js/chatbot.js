@@ -19,6 +19,10 @@ $(function () {
 			if (questions) {
 				let appendContent = '';
 				questions.forEach((element) => {
+					let action = '';
+					if (element.related !== '') {
+						action = `<button class="action action--related" data-button-item="popup" data-popup-target="related" data-value="${element.related}">書中相關段落</button>`;
+					}
 					appendContent +=
 						`<div class="message message--user">
 							<div class="message__dialog">${element.question}</div>
@@ -29,7 +33,7 @@ $(function () {
 								${element.answer}
 							</div>
 							<div class="message__actions">
-								<button class="action action--related" data-button-item="popup" data-popup-target="related" data-value="${element.related}">書中相關段落</button>
+								${action}
 							</div>
 						</div>`;
 				});

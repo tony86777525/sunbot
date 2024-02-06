@@ -73,8 +73,13 @@ $(function () {
 			$('.chatroom__messages').append(
 				`<div class="message message--user" style="display: none;">
 					<div class="message__dialog">${question}</div>
-				</div>
-				<div class="message message--ai" style="display: none;">
+				</div>`
+			);
+			$('.chatroom__messages').animate({scrollTop: $('.chatroom__messages')[0].scrollHeight}, 0)
+
+			$('.chatroom__messages .message:last').fadeIn(600, () => {
+				$('.chatroom__messages').append(
+					`<div class="message message--ai">
 					<div class="message__profile">AI孫主任</div>
 					<div class="message__msg">
 						<div class="loadingWrap">
@@ -85,11 +90,7 @@ $(function () {
 					</div>
 					<div class="message__actions"></div>
 				</div>`
-			);
-			$('.chatroom__messages').animate({scrollTop: $('.chatroom__messages')[0].scrollHeight}, 0)
-
-			$('.chatroom__messages .message--user:last').fadeIn(600, () => {
-				$('.chatroom__messages .message--ai:last').show();
+				);
 				$('.chatroom__messages').animate({scrollTop: $('.chatroom__messages')[0].scrollHeight}, 0)
 			})
 		};

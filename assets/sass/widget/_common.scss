@@ -258,8 +258,9 @@ body {
 
         .wrapper {
             @include mobile {
-                flex-direction: row;
+                flex-direction: column;
                 flex-wrap: wrap;
+                align-items: flex-start;
             }
     
             @include laptops {
@@ -1085,6 +1086,7 @@ body {
 }
 
 .ajaxLoading {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;

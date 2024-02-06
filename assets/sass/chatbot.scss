@@ -15,6 +15,14 @@ html {
         font-size: (100vw/39);
     }
 
+    @include pad {
+        font-size: (50vw/30);
+    }
+
+    @include pad1024 {
+        font-size: (100vw/102.4);
+    }
+
     @include laptops {
         font-size: 16px;
     }

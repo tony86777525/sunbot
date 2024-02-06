@@ -126,9 +126,16 @@
         @content;
     }
 }
-//Large devices (laptops, 1024 and up)
+
+@mixin pad1024 {
+    @media only screen and (min-width: 1025px) and (max-width: 1180px) {
+        @content;
+    }
+}
+
+//Large devices (laptops, 1181 and up)
 @mixin laptops {
-    @media only screen and (min-width: 1024px) {
+    @media only screen and (min-width: 1181px) {
         @content;
     }
 }

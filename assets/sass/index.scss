@@ -15,6 +15,14 @@ html {
         font-size: (100vw/39);
     }
 
+    @include pad {
+        font-size: (50vw/38.4);
+    }
+
+    @include pad1024 {
+        font-size: (100vw/102.4);
+    }
+
     @include laptops {
         font-size: 16px;
     }
@@ -44,6 +52,10 @@ body {
         .main {
             @include mobile {
                 height: calc(100vh - 16.6rem);
+            }
+
+            @include pad {
+                height: calc(100vh - 14.5rem);
             }
         
             @include laptops {
@@ -132,15 +144,35 @@ body {
             bottom: 0;
             z-index: 0;
 
+            &:before {
+                content: '';
+                display: block;
+            }
+
             @include mobile {
                 width: 100%;
                 left: 0;
                 bottom: 0;
 
                 &:before {
-                    content: '';
-                    display: block;
-                    padding-top: (324/375)*100%;
+                    padding-top: (324/390)*100%;
+                }
+            }
+
+            @include pad {
+
+                &:before {
+                    padding-top: (435/768)*100%;
+                }
+            }
+
+            @include pad1024 {
+                width: 70%;
+                left: 50%;
+                @include translateX(-50%);
+
+                &:before {
+                    padding-top: (585/1024)*100%;
                 }
             }
 
@@ -148,10 +180,9 @@ body {
                 width: 70%;
                 left: auto;
                 right: 14%;
+                @include translateX(0);
 
                 &:before {
-                    content: '';
-                    display: block;
                     padding-top: (563/999)*100%;
                 }
             }
@@ -178,7 +209,7 @@ body {
                     }
                 }
 
-                @include laptops {
+                @include pad {
                     &.is-mb {
                         display: none;
                     }

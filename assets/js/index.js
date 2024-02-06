@@ -119,7 +119,7 @@ $(function () {
 
 			//if user is NOT logged in
 			let reject = (error) => {
-				$('[data-popup-name="' + target + '"]').fadeIn();
+				$('[data-popup-name="' + target + '"]').show();
 			}
 
 			let functions = {
@@ -128,6 +128,8 @@ $(function () {
 			};
 
 			sunBot.getMember(functions);
+		} else {
+			$('[data-popup-name="' + target + '"]').show();
 		}
 	});
 

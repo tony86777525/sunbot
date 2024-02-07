@@ -114,7 +114,7 @@ $(function () {
 
 		if (target === 'login') {
 			let resolve = (result) => {
-				window.location.href = 'chatbot.html';
+				window.location.href = 'https://books.cw.com.tw/topic/sunbot/chatbot.html';
 			}
 
 			//if user is NOT logged in

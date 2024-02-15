@@ -2,8 +2,7 @@ const CWApiRelease = 'https://api.cw.com.tw';
 const CWPublishingToken = localStorage.getItem('cw_publishing_token') ?? '';
 const CWPublishingMemberToken = localStorage.getItem('cw_publishing_memberToken') ?? '';
 
-// const LoginPageUrl = 'https://web.cw.com.tw/activity/redirect/f2051b3a-5d63-4a23-992f-6fe6a796bb51';
-const gas = 'https://script.google.com/macros/s/AKfycbzRoEVqPqGdwLXceNHfOfsFT7dMeOS_2dSjppU5Qsf4lj9f8_bTGSDdPojqfwlHLJwUog/exec';
+const gas = 'https://script.google.com/macros/s/AKfycbzLSrBdXSmjHnpcFccAVv-udHVY7zVaqJVbDMC-nihtC5kCoNwmOwcgjiTIGpPmyiMl/exec';
 
 const testQuestions = [
     {

@@ -375,6 +375,9 @@ body.openNav .nav {
     display: none;
   }
 }
+.header .nav label:nth-of-type(1) {
+  color: red;
+}
 .header .nav .nav__links {
   text-align: center;
   display: -webkit-box;
@@ -1006,52 +1009,6 @@ body.openNav .nav {
 .popup__content .popupContent__info .rules ol {
   margin: 0;
 }
-.popup__content .popupContent__info .rules .blankLink {
-  position: relative;
-  display: block;
-  font-weight: 600;
-  color: #693329;
-}
-@media only screen and (min-width: 320px) {
-  .popup__content .popupContent__info .rules .blankLink {
-    font-size: 1.8rem;
-    padding-left: 3rem;
-    line-height: 2rem;
-  }
-}
-@media only screen and (min-width: 1180px) {
-  .popup__content .popupContent__info .rules .blankLink {
-    font-size: 18px;
-    padding-left: 30px;
-    line-height: 20px;
-    -webkit-transition: all 0.3s ease-in;
-    transition: all 0.3s ease-in;
-  }
-  .popup__content .popupContent__info .rules .blankLink:hover {
-    opacity: 0.6;
-  }
-}
-.popup__content .popupContent__info .rules .blankLink:before {
-  content: "";
-  display: block;
-  position: absolute;
-  background-image: url("../images/icon-arrow.svg");
-  background-repeat: no-repeat;
-  top: 0;
-  left: 0;
-}
-@media only screen and (min-width: 320px) {
-  .popup__content .popupContent__info .rules .blankLink:before {
-    width: 2rem;
-    height: 2rem;
-  }
-}
-@media only screen and (min-width: 1180px) {
-  .popup__content .popupContent__info .rules .blankLink:before {
-    width: 20px;
-    height: 20px;
-  }
-}
 .popup__content .popupContent__info .author .author__group:last-child {
   margin-bottom: 0;
 }
@@ -1159,6 +1116,63 @@ body.openNav .nav {
     font-size: 16px;
   }
 }
+@media only screen and (min-width: 320px) {
+  .popup__content .popupContent__info .buyLink {
+    margin-top: 2rem;
+  }
+}
+@media only screen and (min-width: 1180px) {
+  .popup__content .popupContent__info .buyLink {
+    margin-top: 20px;
+  }
+}
+.popup__content .popupContent__info .buyLink .blankLink {
+  position: relative;
+  display: block;
+  font-weight: 600;
+  color: #693329;
+}
+@media only screen and (min-width: 320px) {
+  .popup__content .popupContent__info .buyLink .blankLink {
+    font-size: 1.8rem;
+    padding-left: 3rem;
+    line-height: 2rem;
+  }
+}
+@media only screen and (min-width: 1180px) {
+  .popup__content .popupContent__info .buyLink .blankLink {
+    font-size: 18px;
+    padding-left: 30px;
+    line-height: 20px;
+    -webkit-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+  }
+  .popup__content .popupContent__info .buyLink .blankLink:hover {
+    opacity: 0.6;
+  }
+}
+.popup__content .popupContent__info .buyLink .blankLink:before {
+  content: "";
+  display: block;
+  position: absolute;
+  background-image: url("../images/icon-arrow.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: 0;
+  left: 0;
+}
+@media only screen and (min-width: 320px) {
+  .popup__content .popupContent__info .buyLink .blankLink:before {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+@media only screen and (min-width: 1180px) {
+  .popup__content .popupContent__info .buyLink .blankLink:before {
+    width: 20px;
+    height: 20px;
+  }
+}
 .popup__content .popupContent__action {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1233,7 +1247,7 @@ body.openNav .nav {
     margin-right: 1.5rem;
   }
 }
-@media only screen and (min-width: 320px) {
+@media only screen and (min-width: 1180px) {
   .popup__content .popupContent__action .link--text {
     font-size: 14px;
     letter-spacing: 2.5px;

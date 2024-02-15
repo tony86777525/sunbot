@@ -232,7 +232,10 @@ class SunBot {
                 }
                 case 'answer': {
                     this._answerToCheckBook += relatedContent;
-                    //`<button class="btn btn-light btn-sm" name="popup" data-value="${relatedContent}">查看書中段落</button>`;
+                    // Related Questions
+                    if (recommend.question !== undefined) {
+                        this._answerToRelatedQuestion = recommend.question;
+                    }
                     return this.getStream();
                 }
                 case 'reject': {

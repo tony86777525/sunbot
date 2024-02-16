@@ -234,9 +234,11 @@ body {
 
                         @include mobile {
                             font-size: 1.6rem;
+                            letter-spacing: 0.15rem;
                         }
                         @include laptops {
                             font-size: 16px;
+                            letter-spacing: 1.5px;
                         }
 
                         &:before {
@@ -326,6 +328,7 @@ body {
                                 background-color: #FFFFFF;
                                 line-height: 1.5;
                                 font-weight: 400;
+                                color: #000;
                                 
                                 @include mobile {
                                     border: 0.1rem solid #4593D0;
@@ -349,6 +352,38 @@ body {
                                 
                                 &.is-active {
                                     background-color: #4593D0;
+                                    color: #FFFFFF;
+                                }
+                            }
+
+                            &--form {
+                                background-color: #FFFFFF;
+                                line-height: 1.5;
+                                font-weight: 400;
+                                color: #AC632E;
+                                
+                                @include mobile {
+                                    border: 0.1rem solid #AC632E;
+                                    font-size: 1.4rem;
+                                    padding: 1rem 2.2rem;
+                                    border-radius: 2.8rem;
+                                }
+
+                                @include laptops {
+                                    border: 1px solid #AC632E;
+                                    font-size: 14px;
+                                    padding: 10px 22px;
+                                    border-radius: 28px;
+                                    @include transition(all, .3s, ease-in);
+
+                                    &:hover {
+                                        background-color: #AC632E;
+                                        color: #FFFFFF;
+                                    }
+                                }
+                                
+                                &.is-active {
+                                    background-color: #AC632E;
                                     color: #FFFFFF;
                                 }
                             }

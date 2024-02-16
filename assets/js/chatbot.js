@@ -51,8 +51,8 @@ $(function () {
 				$('.exchangeHint .times').text(times);
 				$('.exchangeHint').show();
 				$('.nav__links')
-					.append(`<a class="link link&#45;&#45;text is-mb" href="https://pse.is/5kx5kw" target="_blank">2024 總體經濟白皮書</a>`)
-					.prepend(`<a class="link link--text is-pc" href="https://pse.is/5kx5kw" target="_blank">2024 總體經濟白皮書</a>`);
+					.append(`<a class="link link&#45;&#45;text is-mb" href="https://pse.is/5kwqkg" target="_blank">2024 總體經濟白皮書</a>`)
+					.prepend(`<a class="link link--text is-pc" href="https://pse.is/5kwqkg" target="_blank">2024 總體經濟白皮書</a>`);
 			}
 		}
 	}
@@ -247,8 +247,8 @@ $(function () {
 					$('.chatroom').addClass('is-exchanged');
 					$('.exchangeHint').show();
 					$('.nav__links')
-						.append(`<a class="link link&#45;&#45;text is-mb" href="https://pse.is/5kx5kw" target="_blank">2024 總體經濟白皮書</a>`)
-						.prepend(`<a class="link link--text is-pc" href="https://pse.is/5kx5kw" target="_blank">2024 總體經濟白皮書</a>`);
+						.append(`<a class="link link&#45;&#45;text is-mb" href="https://pse.is/5kwqkg" target="_blank">2024 總體經濟白皮書</a>`)
+						.prepend(`<a class="link link--text is-pc" href="https://pse.is/5kwqkg" target="_blank">2024 總體經濟白皮書</a>`);
 				} else {
 					$('[data-popup-name="exchange"]').find('.popupContent__status span').text('兌換碼有問題！');
 					$('[data-popup-name="exchange"]').find('.popupContent__status, .exchangeInput').addClass('is-error');

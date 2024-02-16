@@ -6366,11 +6366,13 @@ body.fixed {
 @media only screen and (min-width: 320px) {
   .chatdialog__dialog .chatroom .message--ai .message__profile {
     font-size: 1.6rem;
+    letter-spacing: 0.15rem;
   }
 }
 @media only screen and (min-width: 1180px) {
   .chatdialog__dialog .chatroom .message--ai .message__profile {
     font-size: 16px;
+    letter-spacing: 1.5px;
   }
 }
 .chatdialog__dialog .chatroom .message--ai .message__profile:before {
@@ -6472,6 +6474,7 @@ body.fixed {
   background-color: #FFFFFF;
   line-height: 1.5;
   font-weight: 400;
+  color: #000;
 }
 @media only screen and (min-width: 320px) {
   .chatdialog__dialog .chatroom .message--ai .message__actions .action--recommend {
@@ -6497,6 +6500,38 @@ body.fixed {
 }
 .chatdialog__dialog .chatroom .message--ai .message__actions .action--recommend.is-active {
   background-color: #4593D0;
+  color: #FFFFFF;
+}
+.chatdialog__dialog .chatroom .message--ai .message__actions .action--form {
+  background-color: #FFFFFF;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #AC632E;
+}
+@media only screen and (min-width: 320px) {
+  .chatdialog__dialog .chatroom .message--ai .message__actions .action--form {
+    border: 0.1rem solid #AC632E;
+    font-size: 1.4rem;
+    padding: 1rem 2.2rem;
+    border-radius: 2.8rem;
+  }
+}
+@media only screen and (min-width: 1180px) {
+  .chatdialog__dialog .chatroom .message--ai .message__actions .action--form {
+    border: 1px solid #AC632E;
+    font-size: 14px;
+    padding: 10px 22px;
+    border-radius: 28px;
+    -webkit-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+  }
+  .chatdialog__dialog .chatroom .message--ai .message__actions .action--form:hover {
+    background-color: #AC632E;
+    color: #FFFFFF;
+  }
+}
+.chatdialog__dialog .chatroom .message--ai .message__actions .action--form.is-active {
+  background-color: #AC632E;
   color: #FFFFFF;
 }
 .chatdialog__dialog .chatroom .message--user {

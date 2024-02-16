@@ -578,7 +578,7 @@ class SunBot {
             $('.chatroom__messages').animate({scrollTop: $('.chatroom__messages')[0].scrollHeight}, 0)
 
             let answer = `謝謝您的體驗！<br>還喜歡 AI 孫主任的服務嗎？<br>邀請您花十分鐘，填寫回饋問卷，讓我可以提供給您更好的服務！`;
-            let buttons = `<a class="action action--related" href="#" target="_blank">填寫問卷回饋</a>`;
+            let buttons = `<a href="#" class="action action--form" target="_blank">填寫問卷回饋</a>`;
             let target = $('.loadingWrap').closest('.message');
             target.find('.message__msg').html('').typing({
                 sourceElement: `<div>${answer}<div>`,

@@ -253,6 +253,7 @@ class SunBot {
                     }
 
                     this.setAnswer(functions);
+                    this.usingTimes();
                 }
             }
         }).then(function (response) {

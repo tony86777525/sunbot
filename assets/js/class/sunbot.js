@@ -5,7 +5,7 @@ const CWPublishingMemberToken = localStorage.getItem('cw_publishing_memberToken'
 const SunBotApiRelease = 'https://sunbot.aws.aif.tw/hts';
 const SunBotApiTest = 'https://sunbot.aif.tw';
 
-const gas = 'https://script.google.com/macros/s/AKfycbzLSrBdXSmjHnpcFccAVv-udHVY7zVaqJVbDMC-nihtC5kCoNwmOwcgjiTIGpPmyiMl/exec';
+const gas = 'https://script.google.com/macros/s/AKfycbyTmsQ6skjaiuZYAAYBY8at6FzMPz9nhpQqlHeJ3rMX7QZcfCLIkxkn6wAlQs1iJ6-OtA/exec';
 
 const testQuestions = [
     {

@@ -2,7 +2,7 @@ const CWApiRelease = 'https://api.cw.com.tw';
 const CWPublishingToken = localStorage.getItem('cw_publishing_token') ?? '';
 const CWPublishingMemberToken = localStorage.getItem('cw_publishing_memberToken') ?? '';
 
-const SunBotApiRelease = 'https://sunbot.aif.tw';
+const SunBotApiRelease = 'https://sunbot.aws.aif.tw';
 // const SunBotApiRelease = 'https://sunbot.aws.aif.tw';
 // const SunBotApiTest = 'https://sunbot.aif.tw';
 
@@ -155,7 +155,8 @@ class SunBot {
                 method: settings.method,
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': this._token,
                 },
             }
         );
@@ -213,7 +214,8 @@ class SunBot {
                 method: settings.method,
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': this._token,
                 },
                 body: settings.body,
             }
@@ -598,7 +600,8 @@ class SunBot {
     }
 
     isMemberLogin() {
-        return this._account !== null
+        return this._token !== null
+            && this._account !== null
             && this._email !== null
             && this._name !== null;
     }

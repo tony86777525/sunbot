@@ -2,6 +2,9 @@ const CWApiRelease = 'https://api.cw.com.tw';
 const CWPublishingToken = localStorage.getItem('cw_publishing_token') ?? '';
 const CWPublishingMemberToken = localStorage.getItem('cw_publishing_memberToken') ?? '';
 
+const SunBotApiRelease = 'https://sunbot.aws.aif.tw/hts';
+const SunBotApiTest = 'https://sunbot.aif.tw';
+
 const gas = 'https://script.google.com/macros/s/AKfycbzLSrBdXSmjHnpcFccAVv-udHVY7zVaqJVbDMC-nihtC5kCoNwmOwcgjiTIGpPmyiMl/exec';
 
 const testQuestions = [
@@ -37,6 +40,7 @@ const testQuestions = [
 class SunBot {
     constructor() {
         this._uuid = null;
+        this._token = null;
         this._account = null;
         this._email = null;
         this._name = null;
@@ -59,6 +63,7 @@ class SunBot {
         let resolve = (result) => {
             if (result.success === true) {
                 if (result.code === "0000") {
+                    this._token = result.items.uuid;
                     this._account = result.items.account;
                     this._email = result.items.email;
                     this._name = result.items.name;
@@ -90,7 +95,7 @@ class SunBot {
 
         let settings = {
             method: 'GET',
-            url: 'https://sunbot.aif.tw/getuuid/',
+            url: `${SunBotApiRelease}/getuuid/`,
         }
         let resolve = (result) => {
             let data = JSON.parse(result)
@@ -138,7 +143,7 @@ class SunBot {
 
         let settings = {
             method: 'PUT',
-            url: `https://sunbot.aif.tw/stream/${this._uuid}`,
+            url: `${SunBotApiRelease}/stream/${this._uuid}`,
         }
 
         this.beforeSend(true);
@@ -161,20 +166,21 @@ class SunBot {
             return;
         }
 
-        if (test === true) {
-            functions.beforeSend ?
-                functions.beforeSend(this._question)
-                : () => {};
-
-            this.beforeSend(true);
-            const testQuestion = testQuestions.find((element) => element.question = question);
-            this._answer = testQuestion.answer;
-            this._answerToRelatedQuestion = testQuestion.buttons;
-            this.setAnswer(functions);
-            this.final(true);
-
-            return
-        }
+        // id-27 remove
+        // if (test === true) {
+        //     functions.beforeSend ?
+        //         functions.beforeSend(this._question)
+        //         : () => {};
+        //
+        //     this.beforeSend(true);
+        //     const testQuestion = testQuestions.find((element) => element.question = question);
+        //     this._answer = testQuestion.answer;
+        //     this._answerToRelatedQuestion = testQuestion.buttons;
+        //     this.setAnswer(functions);
+        //     this.final(true);
+        //
+        //     return
+        // }
 
         if (this._uuid === null) {
             await this.getUuid();
@@ -194,7 +200,7 @@ class SunBot {
 
         let settings = {
             method: 'PUT',
-            url: `https://sunbot.aif.tw/answer/${this._uuid}`,
+            url: `${SunBotApiRelease}/answer/${this._uuid}`,
             body: JSON.stringify({"question": this._question})
         }
 
@@ -311,6 +317,7 @@ class SunBot {
 
             let data = {
                 type: 'getMemberTimes',
+                token: this._token,
                 account: this._account,
                 email: this._email,
                 name: this._name,
@@ -524,7 +531,7 @@ class SunBot {
 
     closeWindows() {
         if (this._uuid !== null) {
-            navigator.sendBeacon(`https://sunbot.aif.tw/remove/${this._uuid}`);
+            navigator.sendBeacon(`${SunBotApiRelease}/remove/${this._uuid}`);
         }
     }
 

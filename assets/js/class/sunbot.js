@@ -196,8 +196,6 @@ class SunBot {
             functions.beforeSend ?
                 functions.beforeSend(this._question)
                 : () => {};
-
-            await this.usingTimes();
         }
 
         let settings = {
@@ -285,6 +283,8 @@ class SunBot {
         ).then((data) => {
             this._answer = data;
             this.setAnswer(functions);
+
+            this.usingTimes();
         }).catch(err => {
         }).finally(() => {
             this.final(true);
@@ -588,7 +588,7 @@ class SunBot {
             $('.chatroom__messages').animate({scrollTop: $('.chatroom__messages')[0].scrollHeight}, 0)
 
             let answer = `謝謝您的體驗！<br>還喜歡 AI 孫主任的服務嗎？<br>邀請您花十分鐘，填寫回饋問卷，讓我可以提供給您更好的服務！`;
-            let buttons = `<a href="#" class="action action--form" target="_blank">填寫問卷回饋</a>`;
+            let buttons = `<a href="https://cwealth.my.salesforce-sites.com/web_surveypage?surveyId=a14RA000000PkHNYA0" class="action action--form" target="_blank">填寫問卷回饋</a>`;
             let target = $('.loadingWrap').closest('.message');
             target.find('.message__msg').html('').typing({
                 sourceElement: `<div>${answer}<div>`,

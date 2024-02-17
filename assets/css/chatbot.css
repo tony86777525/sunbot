@@ -719,6 +719,8 @@ body.openNav .nav {
 }
 .footer__nav .link {
   display: block;
+  background-color: transparent;
+  border: none;
   color: #424141;
   font-weight: 500;
 }
@@ -1172,6 +1174,75 @@ body.openNav .nav {
     width: 20px;
     height: 20px;
   }
+}
+.popup__content .popupContent__info .term > div {
+  word-wrap: break-word;
+  line-height: 1.75;
+  font-weight: 300;
+}
+@media only screen and (min-width: 320px) {
+  .popup__content .popupContent__info .term > div {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+  }
+}
+@media only screen and (min-width: 1180px) {
+  .popup__content .popupContent__info .term > div {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+}
+.popup__content .popupContent__info .term > div:last-of-type {
+  margin-bottom: 0;
+}
+.popup__content .popupContent__info .term strong {
+  font-weight: 500;
+}
+@media only screen and (min-width: 320px) {
+  .popup__content .popupContent__info .term strong {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+}
+@media only screen and (min-width: 1180px) {
+  .popup__content .popupContent__info .term strong {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+}
+.popup__content .popupContent__info .term ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media only screen and (min-width: 320px) {
+  .popup__content .popupContent__info .term ul > li {
+    padding-left: 0;
+    font-size: 1.6rem;
+  }
+}
+@media only screen and (min-width: 1180px) {
+  .popup__content .popupContent__info .term ul > li {
+    position: relative;
+    font-size: 16px;
+    padding-left: 20px;
+  }
+}
+@media only screen and (min-width: 320px) {
+  .popup__content .popupContent__info .term ul > li span {
+    padding-right: 8px;
+  }
+}
+@media only screen and (min-width: 1180px) {
+  .popup__content .popupContent__info .term ul > li span {
+    padding-right: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+.popup__content .popupContent__info .term a {
+  color: #AC622E;
 }
 .popup__content .popupContent__action {
   display: -webkit-box;
@@ -6471,6 +6542,7 @@ body.fixed {
   }
 }
 .chatdialog__dialog .chatroom .message--ai .message__actions .action--recommend {
+  text-align: left;
   background-color: #FFFFFF;
   line-height: 1.5;
   font-weight: 400;

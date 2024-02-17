@@ -398,6 +398,8 @@ body {
 
         .link {
             display: block;
+            background-color: transparent;
+            border: none;
             color: #424141;
             font-weight: 500;
             
@@ -823,6 +825,76 @@ body {
                                 height: 20px;
                             }
                         }
+                    }
+                }
+
+                .term {
+                    & > div {
+                        word-wrap: break-word;
+                        line-height: 1.75;
+                        font-weight: 300;
+                        
+                        @include mobile {
+                            font-size: 1.6rem;
+                            margin-bottom: 2rem;
+                        }
+
+                        @include laptops {
+                            font-size: 16px;
+                            margin-bottom: 20px;
+                        }
+
+                        &:last-of-type {
+                            margin-bottom: 0;
+                        }
+                    }
+
+                    strong {
+                        font-weight: 500;
+
+                        @include mobile {
+                            font-size: 1.6rem;
+                            margin-bottom: 1rem;
+                        }
+
+                        @include laptops {
+                            font-size: 16px;
+                            margin-bottom: 10px;
+                        }
+                    }
+
+                    ul {
+                        @include list-reset;
+
+                        & > li {
+                            @include mobile {
+                                padding-left: 0;
+                                font-size: 1.6rem;
+                            }
+
+                            @include laptops {
+                                position: relative;
+                                font-size: 16px;
+                                padding-left: 20px;
+                            }
+
+                            span {
+                                @include mobile {
+                                    padding-right: 8px;
+                                }
+
+                                @include laptops {
+                                    padding-right: 0;
+                                    position: absolute;
+                                    left: 0;
+                                    top: 0;
+                                }  
+                            }
+                        }
+                    }
+
+                    a {
+                        color: #AC622E;
                     }
                 }
             }

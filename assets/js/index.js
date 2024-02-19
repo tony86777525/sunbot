@@ -90,7 +90,7 @@ $(function () {
 		});
 	};
 	
-	var typing_html = '<div><div data-speed="120"><span class="f-large">孫主任</span><span class="f-small">的</span></div><div data-speed="120" data-delay="600"><span class="f-large">經濟筆記</span></div></div>';
+	var typing_html = '<div><div data-speed="120"><span class="f-large">孫主任</span><span class="f-small">的</span></div><div data-speed="120" data-delay="300"><span class="f-large">經濟筆記</span></div></div>';
 	$("#typing").typing({
 		sourceElement: typing_html
 	});

@@ -253,7 +253,6 @@ class SunBot {
                     }
 
                     this.setAnswer(functions);
-                    this.usingTimes();
                 }
             }
         }).then(function (response) {
@@ -285,9 +284,9 @@ class SunBot {
             this._answer = data;
             this.setAnswer(functions);
 
-            this.usingTimes();
         }).catch(err => {
         }).finally(() => {
+            this.usingTimes();
             this.final(true);
         });
     }

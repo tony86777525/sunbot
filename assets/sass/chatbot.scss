@@ -199,6 +199,8 @@ body {
                 width: 100%;
                 bottom: 0;
                 left: 0;
+                z-index: 10;
+                background-color: #FFF;
 
                 @include mobile {
                     padding: 2rem;
@@ -244,7 +246,7 @@ body {
                         &:before {
                             content: '';
                             display: block;
-                            background-image: url('#{$path}/icon-ai.svg');
+                            background-image: url('#{$path}/icon-ai.png');
 
                             @include mobile {
                                 width: 5rem;
